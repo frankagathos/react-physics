@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from "next/head";
+import WithSubnavigation from './Header';
 
 const Layout = ({ children }) => {
     return (
@@ -8,12 +9,9 @@ const Layout = ({ children }) => {
                 <title>Default</title>
                 <meta charSet="utf-8" />
             </Head>
-            <div>
-                Top Nav
-            </div>
-            <main>
-                {children}
-            </main>
+            <WithSubnavigation/>
+            {children}
+
         </>
     )
 }
