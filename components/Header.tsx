@@ -248,12 +248,12 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: 'Inspiration',
+    label: 'Page list 1',
     children: [
       {
-        label: 'Explore Design Work',
+        label: 'Test page',
         subLabel: 'Trending Design to inspire you',
-        href: '#',
+        href: 'test',
       },
       {
         label: 'New & Noteworthy',
@@ -278,8 +278,8 @@ const NAV_ITEMS: Array<NavItem> = [
     ],
   },
   {
-    label: 'Learn Design',
-    href: '#',
+    label: 'Home',
+    href: '/',
   },
   {
     label: 'Hire Designers',
