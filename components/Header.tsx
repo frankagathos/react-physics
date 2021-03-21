@@ -16,6 +16,9 @@ import {
   useBreakpointValue,
   useDisclosure,
 } from '@chakra-ui/react';
+
+import NextLink from 'next/link'
+
 import {
   HamburgerIcon,
   CloseIcon,
@@ -104,38 +107,34 @@ const DesktopNav = () => {
     <Stack direction={'row'} spacing={4}>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
-          <Popover trigger={'hover'} placement={'bottom-start'}>
-            <PopoverTrigger>
-              <Link
-                p={2}
-                href={navItem.href ?? '#'}
-                fontSize={'sm'}
-                fontWeight={500}
-                color={useColorModeValue('gray.600', 'gray.200')}
-                _hover={{
-                  textDecoration: 'none',
-                  color: useColorModeValue('gray.800', 'white'),
-                }}>
-                {navItem.label}
-              </Link>
-            </PopoverTrigger>
 
-            {navItem.children && (
-              <PopoverContent
-                border={0}
-                boxShadow={'xl'}
-                bg={useColorModeValue('white', 'gray.800')}
-                p={4}
-                rounded={'xl'}
-                minW={'sm'}>
-                <Stack>
-                  {navItem.children.map((child) => (
-                    <DesktopSubNav key={child.label} {...child} />
-                  ))}
-                </Stack>
-              </PopoverContent>
-            )}
-          </Popover>
+          {navItem.children &&
+            <Popover trigger={'hover'} placement={'bottom-start'}>
+              <>
+                <PopoverTrigger>
+                  <Link>
+                    {navItem.label}
+                  </Link>
+                </PopoverTrigger>
+                <PopoverContent
+                  border={0}
+                  boxShadow={'xl'}
+                  bg={useColorModeValue('white', 'gray.800')}
+                  p={4}
+                  rounded={'xl'}
+                  minW={'sm'}>
+                  <Stack>
+                    {navItem.children.map((child) => (
+                      <DesktopSubNav key={child.label} {...child} />
+                    ))}
+                  </Stack>
+                </PopoverContent>
+              </>
+            </Popover>
+          }
+          {!navItem.children && <NextLink key={navItem.label} href={navItem.href ?? '/ '}>
+            {navItem.label}
+          </NextLink>}
         </Box>
       ))}
     </Stack>
@@ -144,13 +143,7 @@ const DesktopNav = () => {
 
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   return (
-    <Link
-      href={href}
-      role={'group'}
-      display={'block'}
-      p={2}
-      rounded={'md'}
-      _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}>
+    <NextLink href={href ?? '/puts'}>
       <Stack direction={'row'} align={'center'}>
         <Box>
           <Text
@@ -172,7 +165,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
           <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
-    </Link>
+    </NextLink>
   );
 };
 
@@ -229,9 +222,13 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           align={'start'}>
           {children &&
             children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
+
+              <NextLink key={child.label} href={child.href ?? '/'}>
+
                 {child.label}
-              </Link>
+
+              </NextLink>
+
             ))}
         </Stack>
       </Collapse>
@@ -247,6 +244,10 @@ interface NavItem {
 }
 
 const NAV_ITEMS: Array<NavItem> = [
+  {
+    label: 'Home',
+    href: '/',
+  },
   {
     label: 'Page list 1',
     children: [
@@ -266,24 +267,16 @@ const NAV_ITEMS: Array<NavItem> = [
     label: 'Find Work',
     children: [
       {
-        label: 'Job Board',
+        label: 'Test',
         subLabel: 'Find your dream design job',
-        href: '#',
-      },
-      {
-        label: 'Freelance Projects',
-        subLabel: 'An exclusive list for contract work',
-        href: '#',
-      },
+        href: 'test',
+      }
     ],
   },
+
   {
-    label: 'Home',
-    href: '/',
-  },
-  {
-    label: 'Hire Designers',
-    href: '#',
+    label: 'About',
+    href: '/about',
   },
 ];
 
