@@ -6,7 +6,7 @@ interface Props {
     stars: number
 }
 
-const Test: NextPage<Props> = ({ name, stars }) => {
+const FetchGithub: NextPage<Props> = ({ name, stars }) => {
     return (<>
         <div>Project: {name}</div>
         <div>Github stars: {stars}</div>
@@ -14,11 +14,11 @@ const Test: NextPage<Props> = ({ name, stars }) => {
     )
 }
 
-Test.getInitialProps = async () => {
+FetchGithub.getInitialProps = async () => {
     const res = await fetch('https://api.github.com/repos/frankagathos/gatsby-with-php-form')
     const json = await res.json()
     return { name: json.name, stars: json.stargazers_count }
 }
 
 
-export default Test
+export default FetchGithub

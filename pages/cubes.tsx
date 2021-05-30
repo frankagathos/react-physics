@@ -27,7 +27,7 @@ function Box(props: JSX.IntrinsicElements['mesh']) {
 }
 
 
-const TestThree: NextPage<Props> = () => {
+const Cubes: NextPage<Props> = () => {
     return (
         <Canvas>
             <ambientLight />
@@ -39,4 +39,4 @@ const TestThree: NextPage<Props> = () => {
 }
 
 
-export default TestThree
+export default Cubes

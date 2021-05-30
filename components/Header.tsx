@@ -252,14 +252,14 @@ const NAV_ITEMS: Array<NavItem> = [
     label: 'Physics examples',
     children: [
       {
-        label: 'Test page',
+        label: 'Fetch Github data',
         subLabel: 'Trending Design to inspire you',
-        href: 'test',
+        href: 'fetch-github',
       },
       {
         label: 'Cubes example',
         subLabel: 'cubes from three.js',
-        href: 'test-three',
+        href: 'cubes',
       },
     ],
   },
