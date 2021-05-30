@@ -244,10 +244,10 @@ interface NavItem {
 }
 
 const NAV_ITEMS: Array<NavItem> = [
-  {
-    label: 'Home',
-    href: '/',
-  },
+  // {
+  //   label: 'Home',
+  //   href: '/',
+  // },
   {
     label: 'Physics examples',
     children: [
@@ -263,21 +263,21 @@ const NAV_ITEMS: Array<NavItem> = [
       },
     ],
   },
-  {
-    label: 'Find Work',
-    children: [
-      {
-        label: 'Test',
-        subLabel: 'Find your dream design job',
-        href: 'test',
-      }
-    ],
-  },
+  // {
+  //   label: 'Find Work',
+  //   children: [
+  //     {
+  //       label: 'Test',
+  //       subLabel: 'Find your dream design job',
+  //       href: 'test',
+  //     }
+  //   ],
+  // },
 
-  {
-    label: 'About',
-    href: '/about',
-  },
+  // {
+  //   label: 'About',
+  //   href: '/about',
+  // },
 ];
 
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from "next/head";
 import WithSubnavigation from './Header';
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Layout.module.css'
 
 const Layout: React.FC = ({ children }) => {
     return (
