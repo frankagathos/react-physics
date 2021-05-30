@@ -3,8 +3,13 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
+    <>
         <Link href="/test">
           <a>got to test Page</a>
         </Link>
+        <Link href="/test-three">
+        <a>got to three Js Page</a>
+      </Link>
+      </>
   )
 }

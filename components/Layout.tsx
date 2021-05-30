@@ -7,7 +7,7 @@ const Layout: React.FC = ({ children }) => {
     return (
         <>
             <Head>
-                <title>Frank's app</title>
+                <title>Frank's world</title>
                 <meta charSet="utf-8" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
