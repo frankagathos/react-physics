@@ -253,9 +253,19 @@ const NAV_ITEMS: Array<NavItem> = [
     label: 'Physics examples',
     children: [
       {
-        label: 'Cubes example',
+        label: 'Cubes',
         subLabel: 'cubes from three.js',
         href: 'cubes',
+      },
+      {
+        label: 'Room',
+        subLabel: 'Room panorama',
+        href: 'room',
+      },
+      {
+        label: 'Room  1',
+        subLabel: 'Room with clickable window',
+        href: 'room-with-clickable-window',
       },
     ],
   },

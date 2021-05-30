@@ -8,7 +8,7 @@ const Layout: React.FC = ({ children }) => {
     return (
         <>
             <Head>
-                <title>Frank's world</title>
+                <title>React physics</title>
                 <meta charSet="utf-8" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
@@ -22,13 +22,11 @@ const Layout: React.FC = ({ children }) => {
             </div>
             <footer className={styles.footer}>
                 <a
-                    href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+                    href="https://frankagathos.com"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    Powered by{' '}
-
-                    <AnimatedLogo/>
+                    Made by Frank Agathos
                 </a>
             </footer>
         </>
