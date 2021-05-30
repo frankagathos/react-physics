@@ -249,7 +249,7 @@ const NAV_ITEMS: Array<NavItem> = [
     href: '/',
   },
   {
-    label: 'Page list 1',
+    label: 'Physics examples',
     children: [
       {
         label: 'Test page',
@@ -257,9 +257,9 @@ const NAV_ITEMS: Array<NavItem> = [
         href: 'test',
       },
       {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
-        href: '#',
+        label: 'Cubes example',
+        subLabel: 'cubes from three.js',
+        href: 'test-three',
       },
     ],
   },
