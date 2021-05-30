@@ -25,6 +25,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons';
+import AnimatedLogo from './AnimatedLogo';
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
@@ -54,20 +55,20 @@ export default function WithSubnavigation() {
             aria-label={'Toggle Navigation'}
           />
         </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Text
-            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-            fontFamily={'heading'}
-            color={useColorModeValue('gray.800', 'white')}>
-            Logo
-                    </Text>
+        <Flex flex={{ base: 1 }} alignItems={'center'} justify={{ base: 'center', md: 'start' }}>
+          <Box>
+          <AnimatedLogo/>
+
+          </Box>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />
           </Flex>
         </Flex>
 
-        <Stack
+        {/* login sign in  */}
+
+        {/* <Stack
           flex={{ base: 1, md: 0 }}
           justify={'flex-end'}
           direction={'row'}
@@ -92,7 +93,7 @@ export default function WithSubnavigation() {
             }}>
             Sign Up
                     </Button>
-        </Stack>
+        </Stack> */}
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
@@ -145,7 +146,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   return (
     <NextLink href={href ?? '/puts'}>
       <Stack direction={'row'} align={'center'}>
-        <Box>
+        <Box style={{ cursor: 'pointer' }}>
           <Text
             transition={'all .3s ease'}
             _groupHover={{ color: 'pink.400' }}
@@ -252,17 +253,22 @@ const NAV_ITEMS: Array<NavItem> = [
     label: 'Physics examples',
     children: [
       {
-        label: 'Fetch Github data',
-        subLabel: 'Trending Design to inspire you',
-        href: 'fetch-github',
-      },
-      {
         label: 'Cubes example',
         subLabel: 'cubes from three.js',
         href: 'cubes',
       },
     ],
   },
+  {
+    label: 'Fetch data next.js examples',
+    children: [
+      {
+        label: 'Fetch Github data',
+        subLabel: 'Trending Design to inspire you',
+        href: 'fetch-github',
+      }
+    ],
+  }
   // {
   //   label: 'Find Work',
   //   children: [

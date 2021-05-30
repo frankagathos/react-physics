@@ -1,15 +1,12 @@
 import Head from 'next/head'
 import Link from 'next/link'
-
+import { Heading } from "@chakra-ui/react"
+import { Text } from "@chakra-ui/react"
 export default function Home() {
   return (
     <>
-        <Link href="/test">
-          <a>got to test Page</a>
-        </Link>
-        <Link href="/test-three">
-        <a>got to three Js Page</a>
-      </Link>
-      </>
+    <Heading>React components and three.js examples</Heading>
+      <Text>You can find examples for three.js and every component used in this site.</Text>
+    </>
   )
 }

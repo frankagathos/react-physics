@@ -1,0 +1,30 @@
+
+$color: #045206;
+
+
+.animatedLogo {
+    color:$color;
+    font-weight: 600;
+    width: 150px;
+    font-family: "Roboto";
+    font-size:12px;
+    line-height: 12px;
+    .animatedText {
+        font-size:12px;
+    }
+    span {
+      font-size: 18px;
+  
+      &.span2 {
+        font-family: 'Roboto';
+        font-size: 12px;
+      }
+  
+      &.span2 div span {
+        font-family: 'Roboto';
+        font-size: 12px;
+      }
+
+     
+    }
+  }

@@ -1,29 +1,34 @@
-// import { Link } from "gatsby"
-// import { Random } from "react-animated-text"
-// import React, { PureComponent } from "react"
+import { Random } from "react-animated-text"
+import React, { PureComponent } from "react"
+import Link from 'next/link';
+import styles from '../styles/animated-logo.module.scss'
+class AnimatedLogo extends PureComponent {
+    render() {
+        return (
 
-// class Logo extends PureComponent {
-//   render() {
-//     return (
-//       <Link activeClassName="active-menu-item" className="logo" to="/">
-//         <div>
-//           <span>Frank Agathos</span>
-//         </div>
-//         <div>
-//           <span className="span2">
-//             <Random
-//               text={"Front end developer"}
-//               iterations={1}
-//               effect="verticalFadeIn"
-//               effectChange={2}
-//               effectDirection="up"
-//             />
-//             {/* Front end developer */}
-//           </span>
-//         </div>
-//       </Link>
-//     )
-//   }
-// }
+            <Link href={'/'}>
+                <a className={styles.animatedLogo}>
+                    <div>
+                        <span>React Physics</span>
+                    </div>
 
-// export default Logo
+                    <span className={styles.animatedText}>
+                        <Random
+                            text={"front end stuff..."}
+                            iterations={1}
+                            effect="verticalFadeIn"
+                            effectChange={2}
+                            effectDirection="up"
+                        />
+                        {/* Front end developer */}
+                    </span>
+
+                </a>
+            </Link>
+
+
+        )
+    }
+}
+
+export default AnimatedLogo
