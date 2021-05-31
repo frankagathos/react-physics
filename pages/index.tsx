@@ -6,7 +6,11 @@ export default function Home() {
   return (
     <div className={'container'}>
       <Heading>Welcome to React Physics</Heading>
-      <Text>Here you can find examples of Physics in js, cool components and more...</Text>
+      <Text>Here you can find a collection of React components, mostly Physics oriented.<br></br>
+      implemented with <strong>typescript</strong> in <strong>next.js</strong>.
+
+      </Text>
+
     </div>
   )
 }

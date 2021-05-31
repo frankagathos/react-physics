@@ -12,6 +12,7 @@ const Layout: React.FC = ({ children }) => {
                 <title>React physics</title>
                 <meta charSet="utf-8" />
                 <link rel="icon" href="/favicon.ico" />
+                <meta name="description" content="React components, Physics and more." />
             </Head>
 
             <WithSubnavigation />
@@ -20,8 +21,8 @@ const Layout: React.FC = ({ children }) => {
                 <main className={styles.main}>
                     {children}
                 </main>
-            <Footer/>
             </div>
+            <Footer/>
         </>
     )
 }
