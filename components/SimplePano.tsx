@@ -22,7 +22,7 @@ const MainPano = () => {
     );
 };
 
-const SimplePanorama: NextPage<Props> = ({autorotate }) => {
+const SimplePanorama: NextPage<Props> = () => {
     return (
         <div className={styles.room}>
             <Canvas camera={{ fov: 55, position: [0, 0, 0.1] }}>
