@@ -57,7 +57,7 @@ export default function WithSubnavigation() {
         </Flex>
         <Flex flex={{ base: 1 }} alignItems={'center'} justify={{ base: 'center', md: 'start' }}>
           <Box>
-            <AnimatedLogo />
+            <AnimatedLogo heading={'React Physics'} subHeading={'Front end examples'} logoWidth={150}/>
 
           </Box>
 
@@ -250,32 +250,42 @@ const NAV_ITEMS: Array<NavItem> = [
   //   href: '/',
   // },
   {
-    label: 'Physics examples',
+    label: 'Physics',
     children: [
       {
         label: 'Cubes',
-        subLabel: 'cubes from three.js',
+        subLabel: 'cubes from three.js fiber',
         href: 'cubes',
       },
       {
         label: 'Room',
-        subLabel: 'Room panorama',
+        subLabel: 'Room panorama in three.js fiber',
         href: 'room',
       },
       {
         label: 'Room  1',
-        subLabel: 'Room with clickable window',
+        subLabel: 'Room with clickable window in three.js fiber',
         href: 'room-with-clickable-window',
       },
     ],
   },
   {
-    label: 'Fetch data next.js examples',
+    label: 'Data fetching',
     children: [
       {
         label: 'Fetch Github data',
-        subLabel: 'Trending Design to inspire you',
+        subLabel: 'example using github API in next.js',
         href: 'fetch-github',
+      }
+    ],
+  },
+  {
+    label: 'Components',
+    children: [
+      {
+        label: 'Animated logo',
+        subLabel: 'Animated logo example with react-animated-text',
+        href: 'animated-logo',
       }
     ],
   }

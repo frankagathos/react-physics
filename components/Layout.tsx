@@ -3,6 +3,7 @@ import Head from "next/head";
 import WithSubnavigation from './Header';
 import styles from '../styles/Layout.module.css'
 import AnimatedLogo from './AnimatedLogo';
+import Footer from './Footer';
 
 const Layout: React.FC = ({ children }) => {
     return (
@@ -19,16 +20,8 @@ const Layout: React.FC = ({ children }) => {
                 <main className={styles.main}>
                     {children}
                 </main>
+            <Footer/>
             </div>
-            <footer className={styles.footer}>
-                <a
-                    href="https://frankagathos.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Made by Frank Agathos
-                </a>
-            </footer>
         </>
     )
 }

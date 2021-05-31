@@ -4,9 +4,9 @@ import { Heading } from "@chakra-ui/react"
 import { Text } from "@chakra-ui/react"
 export default function Home() {
   return (
-    <>
-    <Heading>React components and three.js examples</Heading>
-      <Text>You can find examples for three.js and every component used in this site.</Text>
-    </>
+    <div className={'container'}>
+      <Heading>Welcome to React Physics</Heading>
+      <Text>Here you can find examples of Physics in js, cool components and more...</Text>
+    </div>
   )
 }
