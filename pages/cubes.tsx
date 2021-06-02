@@ -2,6 +2,7 @@ import { NextPage } from 'next'
 import * as THREE from 'three'
 import React, { useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
+import Head from 'next/head'
 
 interface Props {
 
@@ -29,13 +30,19 @@ function Box(props: JSX.IntrinsicElements['mesh']) {
 
 const Cubes: NextPage<Props> = () => {
     return (
-        <Canvas>
-            <ambientLight />
-            <pointLight position={[10, 10, 10]} />
-            <Box position={[-1.2, 0, 0]} />
-            <Box position={[0, 0, 0]} />
-            <Box position={[1.2, 0, 0]} />
-        </Canvas>
+        <>
+            <Head>
+                <meta name="description" content="React animated Logo component" />
+            </Head>
+
+            <Canvas>
+                <ambientLight />
+                <pointLight position={[10, 10, 10]} />
+                <Box position={[-1.2, 0, 0]} />
+                <Box position={[0, 0, 0]} />
+                <Box position={[1.2, 0, 0]} />
+            </Canvas>
+        </>
     )
 }
 

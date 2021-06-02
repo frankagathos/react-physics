@@ -31,8 +31,8 @@ const SimplePanorama: NextPage<Props> = () => {
                     enablePan={false}
                     enableDamping
                     dampingFactor={0.1}
-                    autoRotate
-                    rotateSpeed={-0.15}
+                    // autoRotate
+                    // rotateSpeed={-0.15}
                 />
                 <Suspense fallback={"Loading pano..."}>
                     <MainPano />

@@ -10,7 +10,7 @@ const Room: NextPage<Props> = ({ stars }) => {
     return (
 
 
-        <SimplePanorama autoRotate={true} />
+        <SimplePanorama autoRotate={false} />
 
     )
 }
