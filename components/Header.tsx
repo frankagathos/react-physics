@@ -57,7 +57,7 @@ export default function WithSubnavigation() {
         </Flex>
         <Flex flex={{ base: 1 }} alignItems={'center'} justify={{ base: 'center', md: 'start' }}>
           <Box>
-            <AnimatedLogo heading={'React Physics'} subHeading={'Front end examples'} logoWidth={150}/>
+            <AnimatedLogo heading={'Front end React'} subHeading={'react devs universe'} logoWidth={150}/>
 
           </Box>
 

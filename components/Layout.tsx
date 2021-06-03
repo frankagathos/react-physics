@@ -9,7 +9,7 @@ const Layout: React.FC = ({ children }) => {
     return (
         <>
             <Head>
-                <title>React physics</title>
+                <title>Front end React</title>
                 <meta charSet="utf-8" />
                 <link rel="icon" href="/favicon.ico" />
                 <meta name="description" content="React components, Physics and more." />
