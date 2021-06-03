@@ -2,8 +2,8 @@ import React from 'react'
 import Head from "next/head";
 import WithSubnavigation from './Header';
 import styles from '../styles/Layout.module.css'
-import AnimatedLogo from './AnimatedLogo';
 import Footer from './Footer';
+import CookieConsent from "react-cookie-consent";
 
 const Layout: React.FC = ({ children }) => {
     return (
@@ -22,7 +22,20 @@ const Layout: React.FC = ({ children }) => {
                     {children}
                 </main>
             </div>
-            <Footer/>
+            <CookieConsent
+                style={{ background: "#444",color:'white' }}
+                buttonStyle={{ fontWeight: "bold",border:"1px solid white",padding:"5px 30px",color:"white" }}
+                disableStyles={true}
+                location={"top"}
+                buttonClasses="btn btn-primary"
+                containerClasses="alert"
+                contentClasses="text-capitalize"
+                overlay
+            >
+                This website uses cookies to enhance the user experience.
+              
+            </CookieConsent>
+            <Footer />
         </>
     )
 }
