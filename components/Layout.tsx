@@ -17,11 +17,10 @@ const Layout: React.FC = ({ children }) => {
 
             <WithSubnavigation />
 
-            <div className={styles.container}>
                 <main className={styles.main}>
                     {children}
                 </main>
-            </div>
+            
             <CookieConsent
                 style={{ background: "#444",color:'white' }}
                 buttonStyle={{ fontWeight: "bold",border:"1px solid white",padding:"5px 30px",color:"white" }}
