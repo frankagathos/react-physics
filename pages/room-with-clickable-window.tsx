@@ -9,14 +9,13 @@ import { useRouter } from 'next/router'
 interface Props {
 
 }
-const PanoHotspot = () => {
+const PanoHotspot = ({router}) => {
     const texture = useLoader(THREE.TextureLoader, "../test_pano_layer.jpg");
     const [canvasCreated, setCanvasCreated] = useState(false);
     const [canClick, setCanClick] = useState(false);
     const { camera } = useThree();
     const self = useRef();
-    const router = useRouter();
-
+   
 
     let canvas2d: CanvasRenderingContext2D | null;
     const raycaster = new THREE.Raycaster();
@@ -66,7 +65,7 @@ const PanoHotspot = () => {
 
     const handleClick = () => {
         if (canClick) {
-            router.push('/')
+            router.push('/panorama')
         }
     };
 
@@ -104,6 +103,9 @@ const MainPano = () => {
 };
 
 const Room: NextPage<Props> = () => {
+    
+   const router = useRouter();
+//  router hook not working inside components so passing it 
     return (
         <div className={styles.room}>
             <Canvas camera={{ fov: 55, position: [0, 0, 0.1] }}>
@@ -117,7 +119,7 @@ const Room: NextPage<Props> = () => {
                 />
                 <Suspense fallback={"Loading pano..."}>
                     <MainPano />
-                    <PanoHotspot />
+                    <PanoHotspot router={router}/> 
                 </Suspense>
             </Canvas>
         </div>

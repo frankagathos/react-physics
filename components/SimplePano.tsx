@@ -22,7 +22,7 @@ const MainPano = () => {
     );
 };
 
-const SimplePanorama: NextPage<Props> = () => {
+const SimplePanorama: NextPage<Props> = ({autoRotate}) => {
     return (
         <div className={styles.room}>
             <Canvas camera={{ fov: 55, position: [0, 0, 0.1] }}>
@@ -31,7 +31,7 @@ const SimplePanorama: NextPage<Props> = () => {
                     enablePan={false}
                     enableDamping
                     dampingFactor={0.1}
-                    // autoRotate
+                    autoRotate={autoRotate}
                     // rotateSpeed={-0.15}
                 />
                 <Suspense fallback={"Loading pano..."}>

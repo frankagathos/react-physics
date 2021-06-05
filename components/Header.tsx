@@ -258,13 +258,13 @@ const NAV_ITEMS: Array<NavItem> = [
         href: 'cubes',
       },
       {
-        label: 'Room',
-        subLabel: 'Room panorama in three.js fiber',
-        href: 'room',
+        label: 'Panorama',
+        subLabel: 'Beach panorama in three.js fiber',
+        href: 'panorama',
       },
       {
-        label: 'Room  1',
-        subLabel: 'Room with clickable window in three.js fiber',
+        label: 'Room',
+        subLabel: 'Room with clickable window',
         href: 'room-with-clickable-window',
       },
     ],
