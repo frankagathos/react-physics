@@ -4,7 +4,7 @@ import { useThree, useLoader, Canvas } from '@react-three/fiber';
 import { OrbitControls } from "@react-three/drei";
 import { NextPage } from 'next'
 import styles from '../styles/room.module.scss'
-
+import { useRouter } from 'next/router'
 
 interface Props {
 
@@ -15,6 +15,8 @@ const PanoHotspot = () => {
     const [canClick, setCanClick] = useState(false);
     const { camera } = useThree();
     const self = useRef();
+    const router = useRouter();
+
 
     let canvas2d: CanvasRenderingContext2D | null;
     const raycaster = new THREE.Raycaster();
@@ -64,8 +66,7 @@ const PanoHotspot = () => {
 
     const handleClick = () => {
         if (canClick) {
-            // do something
-            window.location.href = '/room'
+            router.push('/')
         }
     };
 
@@ -79,7 +80,7 @@ const PanoHotspot = () => {
     }, [canvasCreated]);
 
     return (
-        <mesh ref={self} scale={[-1, 1, 1]} onClick={() => handleClick()}>
+        <mesh ref={self} scale={[-1, 1, 1]} onClick={handleClick}>
             <sphereBufferGeometry args={[500, 60, 40]} />
             <meshBasicMaterial
                 map={texture}
