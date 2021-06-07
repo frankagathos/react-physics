@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import { Heading, Stack } from "@chakra-ui/react"
 import { Text } from "@chakra-ui/react"
-
 export default function Home() {
 
   return (
