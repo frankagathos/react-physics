@@ -7,14 +7,13 @@ interface Props {
 }
 const Panorama: NextPage<Props> = ({ stars }) => {
 
-    const [rotate,setRotate] =useState<boolean>(true);
-    
+    const [rotate, setRotate] = useState<boolean>(true);
+
     return (
         <>
+            <Button colorScheme="blue" zIndex={1} right={25} top={150} position={'absolute'} onClick={() => setRotate(!rotate)}>Rotate toggle</Button>
 
-        <Button zIndex={1} right={25} top={150} position={'absolute'} onClick={()=>setRotate(!rotate)}>Rotate toggle</Button>
-
-        <SimplePanorama autoRotate={rotate} />
+            <SimplePanorama autoRotate={rotate} />
         </>
     )
 }

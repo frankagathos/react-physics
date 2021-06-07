@@ -7,7 +7,6 @@ body {
 }
 
 a {
-  color: red;
   text-decoration: none;
 }
 
@@ -21,7 +20,7 @@ canvas {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #171720;
+ 
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;

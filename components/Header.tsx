@@ -57,7 +57,7 @@ export default function WithSubnavigation() {
         </Flex>
         <Flex flex={{ base: 1 }} alignItems={'center'} justify={{ base: 'center', md: 'start' }}>
           <Box>
-            <AnimatedLogo heading={'React Physics'} subHeading={'React Dev Universe'} logoWidth={130}/>
+            <AnimatedLogo heading={'React Physics'} subHeading={'3D components and more'} logoWidth={130} />
 
           </Box>
 
@@ -145,7 +145,7 @@ const DesktopNav = () => {
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   return (
     <NextLink href={href ?? '/puts'}>
-      <Stack direction={'row'} align={'center'} _hover={{background:'#D3D3D3'}}>
+      <Stack direction={'row'} align={'center'} _hover={{ background: '#D3D3D3' }}>
         <Box style={{ cursor: 'pointer' }}>
           <Text
             transition={'all .3s ease'}
@@ -245,28 +245,28 @@ interface NavItem {
 }
 
 const NAV_ITEMS: Array<NavItem> = [
-  // {
-  //   label: 'Home',
-  //   href: '/',
-  // },
   {
-    label: 'Physics',
-    children: [
-      {
-        label: 'Cubes',
-        subLabel: 'cubes from three.js fiber',
-        href: 'cubes',
-      },
-      {
-        label: 'Panorama',
-        subLabel: 'Beach panorama in three.js fiber',
-        href: 'panorama',
-      },
-      {
-        label: 'Room',
-        subLabel: 'Room with clickable window',
-        href: 'room-with-clickable-window',
-      },
+    label: 'Examples',
+    children: [{
+      label: '3D Text',
+      subLabel: '3D Text with MouseOnMove event',
+      href: '3d-text',
+    },
+    {
+      label: 'Room',
+      subLabel: 'Room with clickable window',
+      href: 'room-with-clickable-window',
+    },
+    {
+      label: 'Panorama',
+      subLabel: 'Beach panorama in three.js fiber',
+      href: 'panorama',
+    },
+    {
+      label: 'Cubes',
+      subLabel: 'cubes from three.js fiber',
+      href: 'cubes',
+    },
     ],
   },
   {

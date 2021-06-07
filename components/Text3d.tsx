@@ -12,7 +12,7 @@ export default function Text3d({textCopy}) {
   const [rotation, setRotation] = useState<[number,number,number,string]>([0, 0, 0, 'XYZ']);
 
   const [opts, setOpts] = useState({
-    font: "Syncopate",
+    font: "Orbitron",
     fontSize: 20,
     color: "#99ccff",
     maxWidth: 300,
