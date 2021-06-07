@@ -46,8 +46,10 @@ const PanoHotspot = ({router}) => {
 
         if (intersects.length > 0) {
             if (canvas2d) {
+                
                 let x = canvas.width * intersects[0].uv.x;
                 let y = canvas.height * (1 - intersects[0].uv.y);
+
                 let pixel = canvas2d.getImageData(x, y, 1, 1).data;
 
                 if (pixel[0] > 0) {
