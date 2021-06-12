@@ -220,7 +220,8 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           borderLeft={1}
           borderStyle={'solid'}
           borderColor={useColorModeValue('gray.200', 'gray.700')}
-          align={'start'}>
+          align={'start'}
+          color={useColorModeValue('gray.600', 'gray.600')}>
           {children &&
             children.map((child) => (
 
@@ -276,6 +277,11 @@ const NAV_ITEMS: Array<NavItem> = [
         label: 'Fetch Github data',
         subLabel: 'example using github API in next.js',
         href: 'fetch-github',
+      },
+      {
+        label: 'Fetch from football-data',
+        subLabel: 'fetching data example from footbal-data',
+        href: 'football',
       }
     ],
   },
