@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 import Head from 'next/head'
 import { useEffect } from 'react';
-import {
-    Text
-} from '@chakra-ui/react';
-import { List, ListItem, ListIcon, OrderedList, UnorderedList, Heading } from "@chakra-ui/react"
+import { List, ListItem, UnorderedList, Heading } from "@chakra-ui/react"
 
 const Football = () => {
     const authToken = '6417a0e1c04349f0884be2088bd27d91';
@@ -23,7 +20,7 @@ const Football = () => {
     return (
         <>
             <Head>
-                <meta name="description" content="Fetch data from football api" />
+                <meta name="description" content="Fetch data from football-data.org api" />
             </Head>
             <Heading>Italy's top scorers</Heading>
             <br></br>
