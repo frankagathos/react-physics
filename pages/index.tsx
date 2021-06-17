@@ -1,26 +1,45 @@
-import Head from 'next/head'
-import { Heading, Stack } from "@chakra-ui/react"
-import { Text } from "@chakra-ui/react"
+import * as THREE from 'three'
+import React from 'react'
+import { Canvas } from '@react-three/fiber'
+import { Physics, useBox, usePlane } from '@react-three/cannon'
+import niceColors from 'nice-color-palettes'
+
+
+function Plane({ color, ...props }) {
+  const [ref] = usePlane(() => ({ ...props }))
+  return (
+    <mesh ref={ref} receiveShadow>
+      <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
+      <meshPhongMaterial attach="material" color={color} />
+    </mesh>
+  )
+}
+
+function Box() {
+  const [ref, api] = useBox(() => ({ mass: 1, args: [4, 4, 4], isKinematic: true }))
+  return (
+    <mesh ref={ref} castShadow receiveShadow>
+      <boxBufferGeometry attach="geometry" args={[4, 4, 4]} />
+      <meshLambertMaterial attach="material" color="white" side={THREE.DoubleSide} />
+    </mesh>
+  )
+}
+
 export default function Home() {
 
   return (
-    <Stack textAlign={'center'} padding={15}>
-      <Head>
-        <title>Welcome to React Physics</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div className={'container'}>
-        <Heading>Welcome to React Physics</Heading>
-
-        <Text>Here you can find a collection of <strong>React components</strong>, built with <strong>react-three-fiber </strong>
-       and <strong>typescript</strong> in  a <strong>next.js</strong> application.
-
-      </Text>
-
-        <Text> All source code can be found in <a target="_blank" href="https://github.com/frankagathos/react-physics"><strong>GitHub</strong></a>
-        </Text>
-      </div>
-
-    </Stack>
+    <Canvas concurrent shadowMap sRGB gl={{ alpha: false }} camera={{ position: [0, -12, 16] }}>
+      <hemisphereLight intensity={0.35} />
+      <spotLight position={[30, 0, 45]} angle={0.3} penumbra={1} intensity={2} castShadow shadow-mapSize-width={256} shadow-mapSize-height={256} />
+      <pointLight position={[-30, 0, -30]} intensity={0.5} />
+      <Physics gravity={[0, 0, -30]}>
+        <Plane color={niceColors[17][4]} />
+        <Plane color={niceColors[17][4]} position={[-15, 0, 0]} rotation={[0, 0.9, 0]} />
+        <Plane color={niceColors[17][4]} position={[15, 0, 0]} rotation={[0, -0.9, 0]} />
+        <Plane color={niceColors[17][4]} position={[0, 6, 0]} rotation={[0.9, 0, 0]} />
+        <Plane color={niceColors[17][4]} position={[0, -10, 0]} rotation={[-0.9, 0, 0]} />
+        <Box />
+      </Physics>
+    </Canvas>
   )
 }
