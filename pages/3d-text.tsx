@@ -6,7 +6,7 @@ const Text: NextPage = () => {
 
     return (
        
-            <Text3d textCopy={'This is just a text, This is just a text, This is just a text '}/>
+            <Text3d fontSize={20} textCopy='This is just text, This is just a text.'/>
  
     )
 }

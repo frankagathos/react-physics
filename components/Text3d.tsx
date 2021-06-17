@@ -7,23 +7,23 @@ import styles from './Text3d.module.scss'
 // Register Text as a react-three-fiber element
 extend({ Text });
 
-export default function Text3d({textCopy}) {
+export default function Text3d ({textCopy,fontSize}:{textCopy:string,fontSize:number}) {
 
   const [rotation, setRotation] = useState<[number,number,number,string]>([0, 0, 0, 'XYZ']);
 
   const [opts, setOpts] = useState({
     font: "Orbitron",
-    fontSize: 20,
+    fontSize,
     color: "#99ccff",
-    maxWidth: 300,
+    maxWidth: 250,
     lineHeight: 1,
     letterSpacing: 0,
-    textAlign: "justify",
+    textAlign: "center",
     materialType: "MeshPhongMaterial"
   });
   const mesh = useRef<THREE.Mesh>(null!)
 
-  const handleClick = (e) => {
+  const handleMouseMove = (e) => {
 
     if (e.target.offsetHeight) {
       console.log(e.target.offsetHeight);
@@ -38,8 +38,9 @@ export default function Text3d({textCopy}) {
   };
 
   return (
-    <div className={styles.wrapper} onMouseMove={handleClick}>
+    <div className={styles.wrapper} onMouseMove={handleMouseMove}>
       <Canvas>
+        
         <text
           position-z={-180}
           rotation={rotation}
@@ -53,6 +54,7 @@ export default function Text3d({textCopy}) {
             <meshPhongMaterial attach="material" color={opts.color} />
           ) : null}
         </text>
+
         <pointLight position={[-100, 0, -160]} />
         <pointLight position={[0, 0, -170]} />
         <pointLight position={[100, 0, -160]} />
