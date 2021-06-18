@@ -249,6 +249,10 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: 'Examples',
     children: [{
+      label: 'Clouds',
+      subLabel: 'Clouds with text',
+      href: 'clouds',
+    }, {
       label: '3D Text',
       subLabel: '3D Text with MouseOnMove event',
       href: '3d-text',
