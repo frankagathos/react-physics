@@ -283,6 +283,11 @@ const NAV_ITEMS: Array<NavItem> = [
     label: 'Data fetching',
     children: [
       {
+        label: 'Frontend frameworks stars',
+        subLabel: 'github stars for different frontend frameworks',
+        href: 'frontend-frameworks-stars',
+      },
+      {
         label: 'Fetch Github data',
         subLabel: 'example using github API in next.js',
         href: 'fetch-github',
