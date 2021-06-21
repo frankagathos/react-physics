@@ -1,11 +1,13 @@
+import { Button } from '@chakra-ui/react'
 import { NextPage } from 'next'
-import React from 'react'
+import React, { useState } from 'react'
 import StarsScene from '../components/StarsScene'
 import styles from '../styles/frontEndFrameworksStars.module.scss'
 
 
 const FrontEndFrameworksStars: NextPage = ({ data }: { data: any }) => {
 
+    const [controls,setControls] = useState(false)
     return (
         <div className={styles.starsWrapper}>
             {data.map(x => {
@@ -16,7 +18,9 @@ const FrontEndFrameworksStars: NextPage = ({ data }: { data: any }) => {
                             <p>{x.name}</p>
                             <p>{x.stargazers_count}</p>
                         </div>
-                        <StarsScene count={x.stargazers_count}></StarsScene>
+                        <StarsScene controls={controls} count={x.stargazers_count}></StarsScene>
+                        <Button colorScheme="blue" zIndex={1} right={25} bottom={50} position={'fixed'} onClick={() => setControls(!controls)}>Rotate night sky</Button>
+
                     </div>
                 )
             }

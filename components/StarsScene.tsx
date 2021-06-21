@@ -7,9 +7,9 @@ import { Setup } from './Setup'
  * @returns 
  */
 
-const StarsScene = ({count}:{count:number}) => {
+const StarsScene = ({ count, controls }: { count: number, controls: boolean }) => {
     return (
-        <Setup>
+        <Setup controls={controls}>
             <Stars radius={100} depth={50} count={count} factor={0} saturation={1} fade />
         </Setup>
     );
