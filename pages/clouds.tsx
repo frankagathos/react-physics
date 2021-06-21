@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react'
+import React, { Suspense } from 'react'
 import { OrbitControls, Cloud } from '@react-three/drei'
 import { Setup } from '../components/Setup'
 import { Vector3 } from 'three'
