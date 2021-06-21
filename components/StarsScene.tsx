@@ -10,7 +10,7 @@ import { Setup } from './Setup'
 const StarsScene = ({count}:{count:number}) => {
     return (
         <Setup>
-            <Stars radius={50} depth={50} count={count} factor={0} saturation={50} fade />
+            <Stars radius={450} depth={50} count={count} factor={0} saturation={1} fade />
         </Setup>
     );
 };
