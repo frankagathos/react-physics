@@ -12,18 +12,18 @@ const Layout: React.FC = ({ children }) => {
                 <title>React Physics</title>
                 <meta charSet="utf-8" />
                 <link rel="icon" href="/favicon.ico" />
-                <meta name="description" content="React components, Physics and more." />
+                <meta name="description" content="Physics with React.js. Components built with three.js and typescript. Data fetching examples and more." />
             </Head>
 
             <WithSubnavigation />
 
-                <main className={styles.main}>
-                    {children}
-                </main>
-            
+            <main className={styles.main}>
+                {children}
+            </main>
+
             <CookieConsent
-                style={{ background: "#444",color:'white' }}
-                buttonStyle={{ fontWeight: "bold",border:"1px solid white",padding:"5px 30px",color:"white" }}
+                style={{ background: "#444", color: 'white' }}
+                buttonStyle={{ fontWeight: "bold", border: "1px solid white", padding: "5px 30px", color: "white" }}
                 disableStyles={true}
                 location={"top"}
                 buttonClasses="btn btn-primary"
@@ -32,7 +32,7 @@ const Layout: React.FC = ({ children }) => {
                 overlay
             >
                 This website uses cookies to enhance the user experience.
-              
+
             </CookieConsent>
             <Footer />
         </>

@@ -272,6 +272,11 @@ const NAV_ITEMS: Array<NavItem> = [
       subLabel: 'cubes from three.js fiber',
       href: 'cubes',
     },
+    {
+      label: 'Stars',
+      subLabel: 'stars example from drei',
+      href: 'stars',
+    },
     ],
   },
   {
@@ -284,7 +289,7 @@ const NAV_ITEMS: Array<NavItem> = [
       },
       {
         label: 'Fetch from football-data',
-        subLabel: 'fetching data example from footbal-data',
+        subLabel: 'data fetching from football-data',
         href: 'football',
       }
     ],

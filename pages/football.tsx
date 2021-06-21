@@ -20,7 +20,7 @@ const Football = () => {
     return (
         <>
             <Head>
-                <meta name="description" content="Fetch data from football-data.org api" />
+                <meta name="description" content="Fetch data from football-data.org API. Data fetching example in next.js." />
             </Head>
             <Heading>Italy's top scorers</Heading>
             <br></br>
