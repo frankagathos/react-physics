@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { Suspense, useState } from 'react'
 import { OrbitControls, Cloud } from '@react-three/drei'
 import { Setup } from '../components/Setup'
 import { Vector3 } from 'three'
@@ -9,7 +9,7 @@ import { Text } from "troika-three-text";
 export default function Clouds() {
     extend({ Text });
 
-    const [opts, setOpts] = React.useState({
+    const opts = {
         font: "Orbitron",
         fontSize: 5,
         color: "#045206",
@@ -18,11 +18,10 @@ export default function Clouds() {
         letterSpacing: 0,
         textAlign: "center",
         materialType: "MeshPhongMaterial"
-    });
-
+    };
     return (
         <Setup controls={false} cameraPosition={new Vector3(0, 0, 10)}>
-            <React.Suspense fallback={null}>
+            <Suspense fallback={null}>
                 <Cloud position={[-4, -2, 0]} args={[3, 2]} />
                 <Cloud position={[-4, 2, 0]} args={[3, 2]} />
                 <Cloud args={[3, 2]} />
@@ -42,7 +41,7 @@ export default function Clouds() {
                     ) : null}
                 </text>
                 <OrbitControls enablePan={false} zoomSpeed={0.5} />
-            </React.Suspense>
+            </Suspense>
         </Setup>
     )
 }
