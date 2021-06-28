@@ -2,14 +2,14 @@ import { Stars } from "@react-three/drei";
 import { Setup } from './Setup'
 
 /**
- * Stars component 
- * @param param0 
- * @returns 
+ * Stars scene 
+ *  
+ * 
  */
 
-const StarsScene = ({ count, controls }: { count: number, controls: boolean }) => {
+const StarsScene = ({ count }: { count: number }) => {
     return (
-        <Setup controls={controls}>
+        <Setup lights={false}>
             <Stars radius={100} depth={50} count={count} factor={0} saturation={1} fade />
         </Setup>
     );

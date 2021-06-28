@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Head from 'next/head'
 import { useEffect } from 'react';
-import { List, ListItem, UnorderedList, Heading } from "@chakra-ui/react"
+import { ListItem, UnorderedList, Heading } from "@chakra-ui/react"
 
 const Football = () => {
     const authToken = '6417a0e1c04349f0884be2088bd27d91';

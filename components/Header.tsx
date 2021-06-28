@@ -4,7 +4,6 @@ import {
   Flex,
   Text,
   IconButton,
-  Button,
   Stack,
   Collapse,
   Icon,
@@ -133,7 +132,8 @@ const DesktopNav = () => {
               </>
             </Popover>
           }
-          {!navItem.children && <NextLink key={navItem.label} href={navItem.href ?? '/ '}>
+          {!navItem.children &&
+           <NextLink key={navItem.label} href={navItem.href ?? '/ '}>
             {navItem.label}
           </NextLink>}
         </Box>
@@ -251,31 +251,31 @@ const NAV_ITEMS: Array<NavItem> = [
     children: [{
       label: 'Clouds',
       subLabel: 'Clouds with text',
-      href: 'clouds',
+      href: '/clouds',
     }, {
       label: '3D Text',
       subLabel: '3D Text with MouseOnMove event',
-      href: '3d-text',
+      href: '/3d-text',
     },
     {
       label: 'Panorama',
       subLabel: 'Beach panorama in three.js fiber',
-      href: 'panorama',
+      href: '/panorama',
     },
     {
       label: 'Room',
       subLabel: 'Room with clickable window',
-      href: 'room-with-clickable-window',
+      href: '/room-with-clickable-window',
     },
     {
       label: 'Cubes',
       subLabel: 'cubes from three.js fiber',
-      href: 'cubes',
+      href: '/cubes',
     },
     {
       label: 'Stars',
       subLabel: 'stars example from drei',
-      href: 'stars',
+      href: '/stars',
     },
     ],
   },
@@ -285,17 +285,17 @@ const NAV_ITEMS: Array<NavItem> = [
       {
         label: 'Frontend frameworks stars',
         subLabel: 'github stars for different frontend frameworks',
-        href: 'frontend-frameworks-stars',
+        href: '/frontend-frameworks-stars',
       },
       {
         label: 'Fetch Github data',
         subLabel: 'example using github API in next.js',
-        href: 'fetch-github',
+        href: '/fetch-github',
       },
       {
         label: 'Fetch from football-data',
         subLabel: 'data fetching from football-data',
-        href: 'football',
+        href: '/football',
       }
     ],
   },
@@ -305,25 +305,11 @@ const NAV_ITEMS: Array<NavItem> = [
       {
         label: 'Animated logo',
         subLabel: 'Animated logo example with react-animated-text',
-        href: 'animated-logo',
+        href: '/animated-logo',
       }
     ],
   }
-  // {
-  //   label: 'Find Work',
-  //   children: [
-  //     {
-  //       label: 'Test',
-  //       subLabel: 'Find your dream design job',
-  //       href: 'test',
-  //     }
-  //   ],
-  // },
 
-  // {
-  //   label: 'About',
-  //   href: '/about',
-  // },
 ];
 
 
