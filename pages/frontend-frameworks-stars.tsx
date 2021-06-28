@@ -1,8 +1,7 @@
-import { Heading , Text , ListItem, ListIcon, OrderedList, UnorderedList } from '@chakra-ui/react'
+import { Heading , Text , ListItem, ListIcon, OrderedList, UnorderedList , Container } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import Link from 'next/link'
-import React, { useState } from 'react'
-import styles from './frontEndFrameworksStars.module.scss'
+import React from 'react'
 
 interface Props {
     uiFrameworks: [any]
@@ -10,10 +9,10 @@ interface Props {
 
 const FrontEndFrameworksStars: NextPage<Props> = ({ uiFrameworks }) => {
     return (
-        <div className={styles.starsWrapper}>
-            <>
+            <Container>
             <Heading>Frontend frameworks stars</Heading>
-            <Text>Night skies created with github stars using next.js dynamic</Text>
+            <Text>Night skies pages created with github stars fetched from github api and next.js dynamic routing.</Text>
+            <br></br>
                 <UnorderedList>
                     {uiFrameworks.map((item, index) => (
                         <>
@@ -28,8 +27,7 @@ const FrontEndFrameworksStars: NextPage<Props> = ({ uiFrameworks }) => {
                         </>
                     ))}
                 </UnorderedList>
-            </>
-        </div>
+            </Container>
     )
 }
 

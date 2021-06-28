@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 import React from 'react'
-import { Heading, Text } from "@chakra-ui/react"
+import { Heading, Text, Container } from "@chakra-ui/react"
 
 interface Props {
     name: string
@@ -9,13 +9,13 @@ interface Props {
 
 const FetchGithub: NextPage<Props> = ({ name, stars }) => {
     return (
-        <>
+        <Container>
             <Heading>Fetch data from github api</Heading>
             <Text>Example fetching data with SSR</Text>
             <br></br>
             <div>Project: {name}</div>
             <div>Github stars: {stars}</div>
-        </>
+        </Container>
     )
 }
 

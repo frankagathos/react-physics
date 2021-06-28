@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Head from 'next/head'
 import { useEffect } from 'react';
-import { ListItem, UnorderedList, Heading } from "@chakra-ui/react"
+import { ListItem, UnorderedList, Heading , Text, Container} from "@chakra-ui/react"
 
 const Football = () => {
     const authToken = '6417a0e1c04349f0884be2088bd27d91';
@@ -18,11 +18,12 @@ const Football = () => {
     }, [])
 
     return (
-        <>
+        <Container>
             <Head>
                 <meta name="description" content="Fetch data from football-data.org API. Data fetching example in next.js." />
             </Head>
-            <Heading>Italy's top scorers</Heading>
+            <Heading>Simple fetch example</Heading>
+            <Text>Fetch Italy's top scorers</Text>
             <br></br>
             {data &&
 
@@ -35,7 +36,7 @@ const Football = () => {
                     }
                 </UnorderedList>}
 
-        </>
+        </Container>
     )
 }
 

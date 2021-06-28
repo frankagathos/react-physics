@@ -30,7 +30,7 @@ export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box>
+    <Box style={{textTransform:'capitalize'}}>
       <Flex
         bg={useColorModeValue('white', 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
@@ -247,7 +247,7 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: 'Examples',
+    label: 'Generic Examples',
     children: [{
       label: 'Clouds',
       subLabel: 'Clouds with text',
@@ -280,11 +280,11 @@ const NAV_ITEMS: Array<NavItem> = [
     ],
   },
   {
-    label: 'Data fetching',
+    label: 'Data fetching examples',
     children: [
       {
-        label: 'Frontend frameworks stars',
-        subLabel: 'github stars for different frontend frameworks',
+        label: 'Frontend Frameworks Stars',
+        subLabel: 'Github stars for different frontend frameworks',
         href: '/frontend-frameworks-stars',
       },
       {
@@ -299,17 +299,6 @@ const NAV_ITEMS: Array<NavItem> = [
       }
     ],
   },
-  {
-    label: 'Components',
-    children: [
-      {
-        label: 'Animated logo',
-        subLabel: 'Animated logo example with react-animated-text',
-        href: '/animated-logo',
-      }
-    ],
-  }
-
 ];
 
 

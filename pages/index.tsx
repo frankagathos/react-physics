@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import React, { useState } from 'react'
+import React from 'react'
 import { Canvas, extend, } from '@react-three/fiber'
 import { Physics, useBox, usePlane } from '@react-three/cannon'
 import niceColors from 'nice-color-palettes'
@@ -90,7 +90,7 @@ function Box({ position = [0, 0, 0] }: { position?: [number, number, number] }) 
 export default function Home() {
 
   return (
-    <Canvas concurrent shadowMap sRGB gl={{ alpha: false }} camera={{ position: [0, -12, 16] }}>
+    <Canvas gl={{ alpha: false }} camera={{ position: [0, -12, 16] }}>
       <OrbitControls
       zoomSpeed={0.8}
         enableZoom={true}
