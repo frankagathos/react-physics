@@ -4,6 +4,14 @@ import Layout from '../components/Layout'
 import { extendTheme } from "@chakra-ui/react"
 
 const theme = extendTheme({
+  components: {
+    Container: {
+      // 1. We can update the base styles
+      baseStyle: {
+        paddingTop:'25px'
+      },    
+      },
+    },
   colors: {
     gray: {
       800: '#f2eae2'
