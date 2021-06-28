@@ -11,7 +11,7 @@ export default function Clouds() {
 
     const opts = {
         font: "Orbitron",
-        fontSize: 5,
+        fontSize: 3,
         color: "#045206",
         maxWidth: 250,
         lineHeight: 1,
