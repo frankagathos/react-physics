@@ -288,14 +288,9 @@ const NAV_ITEMS: Array<NavItem> = [
         href: '/frontend-frameworks-stars',
       },
       {
-        label: 'Fetch Github data',
-        subLabel: 'example using github API in next.js',
-        href: '/fetch-github',
-      },
-      {
-        label: 'Fetch from football-data',
-        subLabel: 'data fetching from football-data',
-        href: '/football',
+        label: 'Euro 21 top scorers',
+        subLabel: 'data fetching example from football-data',
+        href: '/euro-football',
       }
     ],
   },
