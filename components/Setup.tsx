@@ -17,7 +17,7 @@ export function Setup({
             <Canvas
                 shadows
                 camera={{ position: cameraPosition, fov: cameraFov }}
-                dpr={window.devicePixelRatio || 1}
+                // dpr={window.devicePixelRatio || 1}
                 {...restProps}>
                 {children}
                 {lights && (
