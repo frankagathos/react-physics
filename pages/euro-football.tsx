@@ -37,7 +37,7 @@ const Football = () => {
             {data &&
 
                 <UnorderedList>
-                    {data.scorers.map(scorer => {
+                    {data.scorers.map((scorer:any) => {
                         return (
                             <ListItem><span>{scorer.player.name}:</span> <span>{scorer.numberOfGoals}</span></ListItem>
                         )
@@ -56,7 +56,11 @@ const Football = () => {
                         lockX={lockX}
                         lockY={lockY}
                         lockZ={lockZ}
-                    ></Billboard>
+                    >
+
+                    
+
+                    </Billboard>
                     <Billboard
                         position={[-4, 2, 0]}
                         args={[3, 2]}

@@ -2,27 +2,30 @@ $color: #045206;
 $breakingPoint: 500px;
 
 
-  @font-face {
-    font-family: "GoldmanBold";
-    src: local("GoldmanBold"),
-     url("https://fonts.gstatic.com/s/syncopate/v9/pe0sMIuPIYBCpEV5eFdCBfe5.woff") format("woff");
-    }
+@font-face {
+  font-family: "GoldmanBold";
+  src: local("GoldmanBold"),
+    url("https://fonts.gstatic.com/s/syncopate/v9/pe0sMIuPIYBCpEV5eFdCBfe5.woff") format("woff");
+}
+
 .animatedLogo {
   color: $color;
   font-weight: 800;
   font-family: "GoldmanBold";
   font-size: 10px;
-  line-height: 12px;
+  line-height: 14px;
 
   .heading {
     font-size: 25px;
   }
 
   .subHeading {
-    font-size: 16px;
-    font-family:'Segoe UI';
+    font-size: 15px;
+    font-family: 'Segoe UI';
+    font-weight:600;
     font-weight: normal;
-    text-transform: capitalize;
+    text-transform: none;
+    span{text-transform: none;font-weight: 500;}
   }
 
 

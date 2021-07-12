@@ -35,4 +35,6 @@ canvas {
  display:flex;
  align-items: center;
  justify-content: space-between;
+ top:unset!important;
+ width:100%;
 }

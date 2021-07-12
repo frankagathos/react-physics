@@ -22,7 +22,7 @@ const Layout: React.FC = ({ children }) => {
             </main>
 
             <CookieConsent
-                style={{ background: "#444", color: 'white' }}
+                style={{ background: "#444", color: 'white',position:'fixed',bottom:0,left:0,height:'fit-content' }}
                 buttonStyle={{ fontWeight: "bold", border: "1px solid white", padding: "5px 30px", color: "white" }}
                 disableStyles={true}
                 location={"top"}
