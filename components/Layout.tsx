@@ -13,7 +13,7 @@ const Layout: React.FC = ({ children }) => {
                 <meta charSet="utf-8" />
                 <link rel="icon" href="/favicon.ico" />
                 <meta name="author" content="Frank Agathos (Frantzeskos Agathos)"></meta>
-                <meta name="keywords" content="3D components, React, React.js, Three.js, Three.js fiber, Physics, VR, Science , javascript, API integration, API, React-Redux , 3D web components, next.js"></meta>
+                <meta name="keywords" content="3D components, React, React.js, Three.js, Three.js fiber, React three fiber, Physics, VR, Science , javascript, API integration, API, React-Redux , 3D web components, next.js"></meta>
                 <meta name="description" content="React physics. 3D Components built with three.js fiber in a next.js app with typescript. Data fetching examples and more." />
                 {/* Global Site Tag (gtag.js) - Google Analytics */}
                 <script
