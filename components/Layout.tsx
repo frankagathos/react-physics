@@ -13,6 +13,23 @@ const Layout: React.FC = ({ children }) => {
                 <meta charSet="utf-8" />
                 <link rel="icon" href="/favicon.ico" />
                 <meta name="description" content="Physics with React.js. Components built with three.js and typescript. Data fetching examples and more." />
+                {/* Global Site Tag (gtag.js) - Google Analytics */}
+                <script
+                    async
+                    src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+                />
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
+            });
+          `,
+                    }}
+                />
             </Head>
 
             <WithSubnavigation />
@@ -22,7 +39,7 @@ const Layout: React.FC = ({ children }) => {
             </main>
 
             <CookieConsent
-                style={{ background: "#444", color: 'white',position:'fixed',bottom:0,left:0,height:'fit-content' }}
+                style={{ background: "#444", color: 'white', position: 'fixed', bottom: 0, left: 0, height: 'fit-content' }}
                 buttonStyle={{ fontWeight: "bold", border: "1px solid white", padding: "5px 30px", color: "white" }}
                 disableStyles={true}
                 location={"top"}
