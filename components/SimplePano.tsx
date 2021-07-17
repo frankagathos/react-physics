@@ -5,8 +5,6 @@ import { useLoader, Canvas } from '@react-three/fiber';
 import { OrbitControls } from "@react-three/drei";
 import { NextPage } from 'next'
 import styles from '../styles/room.module.scss'
-
-
 interface Props {
     autoRotate: boolean
 }
@@ -22,7 +20,7 @@ const MainPano = () => {
     );
 };
 
-const SimplePanorama: NextPage<Props> = ({autoRotate}) => {
+const SimplePanorama: NextPage<Props> = ({ autoRotate }) => {
     return (
         <div className={styles.room}>
             <Canvas camera={{ fov: 55, position: [0, 0, 0.1] }}>
@@ -32,15 +30,12 @@ const SimplePanorama: NextPage<Props> = ({autoRotate}) => {
                     enableDamping
                     dampingFactor={0.1}
                     autoRotate={autoRotate}
-                    // rotateSpeed={-0.15}
                 />
                 <Suspense fallback={"Loading pano..."}>
                     <MainPano />
                 </Suspense>
             </Canvas>
         </div>
-
-
     );
 };
 

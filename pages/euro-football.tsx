@@ -1,13 +1,33 @@
-import React, { useState } from 'react'
+import React, { Suspense, useState } from 'react'
 import Head from 'next/head'
 import { useEffect } from 'react';
 import { ListItem, UnorderedList, Heading, Text, Container } from "@chakra-ui/react"
-import { Billboard, OrbitControls, useTexture } from '@react-three/drei';
+import { Billboard, OrbitControls } from '@react-three/drei';
 import { Setup } from '../components/Setup';
-import { Vector3 } from 'three'
-import * as THREE from 'three'
+
 import { useLoader } from '@react-three/fiber';
-import { TextureLoader } from 'three/src/loaders/TextureLoader.js'
+import * as THREE from "three";
+
+const MainPano = () => {
+    const mainTexture = useLoader(THREE.TextureLoader, "../panorama.jpg");
+
+    return (
+        <mesh scale={[-1, 1, 1]}>
+            <sphereBufferGeometry args={[500, 60, 40]} />
+            <meshBasicMaterial map={mainTexture} side={THREE.BackSide} />
+        </mesh>
+    );
+};
+const Mesh = ({url}:{url:string}) => {
+    const mainTexture = useLoader(THREE.TextureLoader, "../italy.png");
+
+    return (
+        <meshBasicMaterial
+            attach="material"
+            map={mainTexture}
+        />
+    );
+};
 
 const Football = () => {
     const authToken = '6417a0e1c04349f0884be2088bd27d91';
@@ -16,6 +36,8 @@ const Football = () => {
     const lockX = false
     const lockY = false
     const lockZ = false
+    // const texture2 = useLoader(THREE.TextureLoader, "../test_pano.jpg");
+
 
     useEffect(() => {
         fetch('https://api.football-data.org/v2/competitions/EC/scorers', {
@@ -37,19 +59,18 @@ const Football = () => {
             {data &&
 
                 <UnorderedList>
-                    {data.scorers.map((scorer:any) => {
+                    {data.scorers.map((scorer: any) => {
                         return (
                             <ListItem><span>{scorer.player.name}:</span> <span>{scorer.numberOfGoals}</span></ListItem>
                         )
                     })
                     }
                 </UnorderedList>}
-            {!data && <Text>Couldn't fetch</Text>}
 
-            <Setup controls={false} cameraPosition={new Vector3(0, 0, 10)}>
+            <Setup controls={true} cameraPosition={new THREE.Vector3(0, 0, 10)}>
                 <>
                     <Billboard
-                        position={[-4, -2, 0]}
+                        position={[-4, 0, 0]}
                         args={[3, 2]}
                         material-color="red"
                         follow={follow}
@@ -57,10 +78,12 @@ const Football = () => {
                         lockY={lockY}
                         lockZ={lockZ}
                     >
-
-                    
-
+                        <Suspense fallback={"Loading..."}>
+                            <Mesh />
+                        </Suspense>
                     </Billboard>
+
+
                     <Billboard
                         position={[-4, 2, 0]}
                         args={[3, 2]}
@@ -97,7 +120,11 @@ const Football = () => {
                         lockY={lockY}
                         lockZ={lockZ}
                     />
-                    <OrbitControls enablePan={false} zoomSpeed={0.5} />
+
+
+                    <Suspense fallback={"Loading pano..."}>
+                        <MainPano />
+                    </Suspense>
                 </>
             </Setup>
         </div>

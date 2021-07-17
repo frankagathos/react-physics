@@ -30,7 +30,7 @@ export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box style={{textTransform:'capitalize'}}>
+    <Box style={{ textTransform: 'capitalize' }}>
       <Flex
         bg={useColorModeValue('white', 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
@@ -133,9 +133,9 @@ const DesktopNav = () => {
             </Popover>
           }
           {!navItem.children &&
-           <NextLink key={navItem.label} href={navItem.href ?? '/ '}>
-            {navItem.label}
-          </NextLink>}
+            <NextLink key={navItem.label} href={navItem.href ?? '/ '}>
+              {navItem.label}
+            </NextLink>}
         </Box>
       ))}
     </Stack>
@@ -252,6 +252,11 @@ const NAV_ITEMS: Array<NavItem> = [
       label: 'Clouds',
       subLabel: 'Clouds with text',
       href: '/clouds',
+    },
+    {
+      label: 'Image gallery',
+      subLabel: '3d Image gallery',
+      href: '/image-gallery-with-panorama',
     }, {
       label: '3D Text',
       subLabel: '3D Text with MouseOnMove event',
@@ -287,11 +292,11 @@ const NAV_ITEMS: Array<NavItem> = [
         subLabel: 'Github stars for different frontend frameworks',
         href: '/frontend-frameworks-stars',
       },
-      {
-        label: 'Euro 21 top scorers',
-        subLabel: 'data fetching example from football-data',
-        href: '/euro-football',
-      }
+      // {
+      //   label: 'Euro 21 top scorers',
+      //   subLabel: 'data fetching example from football-data',
+      //   href: '/euro-football',
+      // }
     ],
   },
 ];

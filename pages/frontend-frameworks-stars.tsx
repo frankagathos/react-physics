@@ -16,7 +16,7 @@ const FrontEndFrameworksStars: NextPage<Props> = ({ uiFrameworks }) => {
                 <UnorderedList>
                     {uiFrameworks.map((item, index) => (
                         <>
-                        <ListItem  key={index}>
+                        <ListItem style={{textTransform:'capitalize'}}  key={index}>
                             <Link 
                             href={`frontend-frameworks-stars/${item.name}?stars=${item.stargazers_count}`}>
                                 <a>
