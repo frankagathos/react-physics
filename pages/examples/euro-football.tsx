@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { useEffect } from 'react';
 import { ListItem, UnorderedList, Heading, Text, Container } from "@chakra-ui/react"
 import { Billboard, OrbitControls } from '@react-three/drei';
-import { Setup } from '../components/Setup';
+import { Setup } from '../../components/Setup';
 
 import { useLoader } from '@react-three/fiber';
 import * as THREE from "three";

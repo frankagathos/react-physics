@@ -5,44 +5,46 @@ export interface NavItem {
   href?: string;
 }
 
+const examples="examples";
+
 export const NAV_ITEMS: Array<NavItem> = [
   {
-    label: "Examples",
+    label: `${examples}`,
     children: [
       {
         label: "Clouds",
         subLabel: "Clouds with text",
-        href: "/clouds",
+        href: `/${examples}/clouds`,
       },
       {
         label: "Image gallery",
         subLabel: "3d Image gallery",
-        href: "/image-gallery-with-panorama",
+        href: `/${examples}/image-gallery-with-panorama`,
       },
       {
         label: "3D Text",
         subLabel: "3D Text with MouseOnMove event",
-        href: "/3d-text",
+        href: `/${examples}/3d-text`,
       },
       {
         label: "Panorama",
         subLabel: "Beach panorama in three.js fiber",
-        href: "/panorama",
+        href: `${examples}/panorama`,
       },
       {
         label: "Room",
         subLabel: "Room with clickable window",
-        href: "/room-with-clickable-window",
+        href: `/${examples}/room-with-clickable-window`,
       },
       {
         label: "Cubes",
         subLabel: "cubes from three.js fiber",
-        href: "/cubes",
+        href: `/${examples}/cubes`,
       },
       {
         label: "Stars",
         subLabel: "stars example from drei",
-        href: "/stars",
+        href: `/${examples}/stars`,
       },
     ],
   },

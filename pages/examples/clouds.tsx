@@ -1,8 +1,8 @@
 import React, { Suspense } from 'react'
 import { OrbitControls, Cloud } from '@react-three/drei'
-import { Setup } from '../components/Setup'
+import { Setup } from '../../components/Setup'
 import { Vector3 } from 'three'
-import fonts from '../fonts/fonts'
+import fonts from '../../fonts/fonts'
 import { extend } from '@react-three/fiber'
 import { Text } from "troika-three-text";
 import styles from "./clouds.module.scss"

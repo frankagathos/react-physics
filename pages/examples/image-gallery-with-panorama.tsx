@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import React, { Suspense } from 'react'
 import Head from 'next/head'
-import { Setup } from '../components/Setup'
+import { Setup } from '../../components/Setup'
 import * as THREE from "three";
 import { useLoader } from '@react-three/fiber';
 import { Billboard } from '@react-three/drei'

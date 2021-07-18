@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 import React from 'react'
 import { Canvas } from '@react-three/fiber'
 import Head from 'next/head'
-import Box from '../components/objects/box'
+import Box from '../../components/objects/box'
 
 interface Props {
 

@@ -1,7 +1,7 @@
 import { Button } from '@chakra-ui/react';
 import { NextPage } from 'next'
 import React, { useState } from 'react'
-import SimplePanorama from '../components/SimplePano';
+import SimplePanorama from '../../components/SimplePano';
 
 const Panorama: NextPage = () => {
 

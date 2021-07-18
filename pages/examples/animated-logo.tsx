@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head';
 import React from 'react'
-import AnimatedLogo from './../components/AnimatedLogo';
+import AnimatedLogo from './../../components/AnimatedLogo';
 
 
 const AnLogoExample = () => {

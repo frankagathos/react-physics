@@ -1,5 +1,5 @@
 import React from 'react'
-import StarsScene from './../components/StarsScene';
+import StarsScene from '../../components/StarsScene';
 
 
 const Stars = ({ stars }: { stars: number }) => {

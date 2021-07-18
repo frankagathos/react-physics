@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import React from 'react'
 import { Heading, Text, Container } from "@chakra-ui/react"
-import Text3d from '../components/Text3d'
+import Text3d from '../../components/Text3d'
 
 interface Props {
     name: string
