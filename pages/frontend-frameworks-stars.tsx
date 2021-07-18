@@ -1,5 +1,6 @@
-import { Heading , Text , ListItem, ListIcon, OrderedList, UnorderedList , Container } from '@chakra-ui/react'
+import { Heading, Text, ListItem, ListIcon, OrderedList, UnorderedList, Container } from '@chakra-ui/react'
 import { NextPage } from 'next'
+import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react'
 
@@ -9,25 +10,29 @@ interface Props {
 
 const FrontEndFrameworksStars: NextPage<Props> = ({ uiFrameworks }) => {
     return (
+        <>
+            <Head>
+                <meta name="description" content="This page contains a list of night skies pages created with github stars fetched from github API and next.js dynamic routing using getStaticProps." />
+            </Head>
             <Container>
-            <Heading>Frontend frameworks stars</Heading>
-            <Text>Night skies pages created with github stars fetched from github api and next.js dynamic routing.</Text>
-            <br></br>
+                <Heading>Frontend frameworks stars</Heading>
+                <Text>Night skies pages created with github stars fetched from github API and next.js dynamic routing using getStaticProps.</Text>
                 <UnorderedList>
                     {uiFrameworks.map((item, index) => (
                         <>
-                        <ListItem style={{textTransform:'capitalize'}}  key={index}>
-                            <Link 
-                            href={`frontend-frameworks-stars/${item.name}?stars=${item.stargazers_count}`}>
-                                <a>
-                                    {item.name}
-                                </a>
-                            </Link>
-                        </ListItem>
+                            <ListItem style={{ textTransform: 'capitalize' }} key={index}>
+                                <Link
+                                    href={`frontend-frameworks-stars/${item.name}?stars=${item.stargazers_count}`}>
+                                    <a>
+                                        {item.name}
+                                    </a>
+                                </Link>
+                            </ListItem>
                         </>
                     ))}
                 </UnorderedList>
             </Container>
+        </>
     )
 }
 
@@ -42,6 +47,5 @@ export async function getStaticProps() {
         props: { uiFrameworks: data }
     }
 }
-
 
 export default FrontEndFrameworksStars

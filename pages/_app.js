@@ -7,11 +7,20 @@ import {useEffect} from 'react'
 const theme = extendTheme({
   components: {
     Container: {
-      // 1. We can update the base styles
       baseStyle: {
         paddingTop: '25px'
       },
     },
+    Heading: {
+      baseStyle: {
+        marginBottom: '25px'
+      }
+    },
+    Text: {
+      baseStyle: {
+        marginBottom: '20px'
+      }
+    }
   },
   colors: {
     gray: {

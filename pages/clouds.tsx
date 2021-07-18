@@ -5,7 +5,7 @@ import { Vector3 } from 'three'
 import fonts from '../fonts/fonts'
 import { extend } from '@react-three/fiber'
 import { Text } from "troika-three-text";
-
+import styles from "./clouds.module.scss"
 export default function Clouds() {
     extend({ Text });
 
@@ -20,7 +20,8 @@ export default function Clouds() {
         materialType: "MeshPhongMaterial"
     };
     return (
-        <Setup controls={false} cameraPosition={new Vector3(0, 0, 10)}>
+        <div className={styles.clouds}>
+            <Setup controls={false} cameraPosition={new Vector3(0, 0, 10)}>
             <Suspense fallback={null}>
                 <Cloud position={[-4, -2, 0]} args={[3, 2]} />
                 <Cloud position={[-4, 2, 0]} args={[3, 2]} />
@@ -43,5 +44,7 @@ export default function Clouds() {
                 <OrbitControls enablePan={false} zoomSpeed={0.5} />
             </Suspense>
         </Setup>
+        </div>
+        
     )
 }

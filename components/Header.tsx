@@ -25,6 +25,7 @@ import {
   ChevronRightIcon,
 } from '@chakra-ui/icons';
 import AnimatedLogo from './AnimatedLogo';
+import { NavItem, NAV_ITEMS } from './NavItems';
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
@@ -146,14 +147,15 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   return (
     <NextLink href={href ?? '/puts'}>
       <Stack direction={'row'} align={'center'} _hover={{ background: '#D3D3D3' }}>
-        <Box style={{ cursor: 'pointer' }}>
+        <Box style={{ cursor: 'pointer', padding: '5px' }}>
           <Text
+            style={{ marginBottom: 0 }}
             transition={'all .3s ease'}
             _groupHover={{ color: 'pink.400' }}
             fontWeight={500}>
             {label}
           </Text>
-          <Text fontSize={'sm'}>{subLabel}</Text>
+          <Text style={{ marginBottom: 0 }} fontSize={'sm'}>{subLabel}</Text>
         </Box>
         <Flex
           transition={'all .3s ease'}
@@ -198,6 +200,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           textDecoration: 'none',
         }}>
         <Text
+          style={{ marginBottom: 0 }}
           fontWeight={600}
           color={useColorModeValue('gray.600', 'gray.200')}>
           {label}
@@ -238,67 +241,5 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
   );
 };
 
-interface NavItem {
-  label: string;
-  subLabel?: string;
-  children?: Array<NavItem>;
-  href?: string;
-}
-
-const NAV_ITEMS: Array<NavItem> = [
-  {
-    label: 'Generic Examples',
-    children: [{
-      label: 'Clouds',
-      subLabel: 'Clouds with text',
-      href: '/clouds',
-    },
-    {
-      label: 'Image gallery',
-      subLabel: '3d Image gallery',
-      href: '/image-gallery-with-panorama',
-    }, {
-      label: '3D Text',
-      subLabel: '3D Text with MouseOnMove event',
-      href: '/3d-text',
-    },
-    {
-      label: 'Panorama',
-      subLabel: 'Beach panorama in three.js fiber',
-      href: '/panorama',
-    },
-    {
-      label: 'Room',
-      subLabel: 'Room with clickable window',
-      href: '/room-with-clickable-window',
-    },
-    {
-      label: 'Cubes',
-      subLabel: 'cubes from three.js fiber',
-      href: '/cubes',
-    },
-    {
-      label: 'Stars',
-      subLabel: 'stars example from drei',
-      href: '/stars',
-    },
-    ],
-  },
-  {
-    label: 'Data fetching examples',
-    children: [
-      {
-        label: 'Frontend Frameworks Stars',
-        subLabel: 'Github stars for different frontend frameworks',
-        href: '/frontend-frameworks-stars',
-      },
-      // {
-      //   label: 'Euro 21 top scorers',
-      //   subLabel: 'data fetching example from football-data',
-      //   href: '/euro-football',
-      // }
-    ],
-  },
-];
 
 

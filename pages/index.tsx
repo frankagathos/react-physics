@@ -1,12 +1,15 @@
 import * as THREE from 'three'
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import Router from "next/router";
 import { Canvas, extend, } from '@react-three/fiber'
 import { Physics, useBox, usePlane } from '@react-three/cannon'
 import niceColors from 'nice-color-palettes'
 import { Text } from "troika-three-text";
 import fonts from '../fonts/fonts'
 import { OrbitControls } from '@react-three/drei'
-
+import { useRouter } from 'next/router'
+import { DomEvent, ThreeEvent } from '@react-three/fiber/dist/declarations/src/core/events'
+import styles from '../components/setup.module.scss'
 extend({ Text });
 
 function Plane({ color, ...props }) {
@@ -19,7 +22,7 @@ function Plane({ color, ...props }) {
   )
 }
 
-function Box({ position = [0, 0, 0] }: { position?: [number, number, number] }) {
+function Box({ position = [0, 0, 0], onClick }: { position?: [number, number, number], onClick: (event: ThreeEvent<MouseEvent>) => void }) {
   const [ref] = useBox(() => ({ mass: 1, args: [4, 4, 4], isKinematic: true, position }))
   const opts = {
     font: "Orbitron",
@@ -31,8 +34,19 @@ function Box({ position = [0, 0, 0] }: { position?: [number, number, number] }) 
     textAlign: "center",
     materialType: "MeshPhongMaterial"
   }
+  const mesh = useRef<THREE.Mesh>(null!)
+  const [hovered, setHover] = useState(false)
+
+  useEffect(() => {
+    hovered ? document.body.style.cursor = 'pointer' : document.body.style.cursor = 'default'
+  }, [hovered])
+
   return (
-    <mesh ref={ref} castShadow receiveShadow>
+    <mesh ref={ref} castShadow receiveShadow onClick={onClick} scale={hovered ? 1.5 : 1}
+
+      onPointerOver={(event) => setHover(true)}
+      onPointerOut={(event) => setHover(false)}>
+
       <boxBufferGeometry attach="geometry" args={[4, 4, 4]} />
       <meshLambertMaterial attach="material" color="white" side={THREE.DoubleSide} />
 
@@ -88,11 +102,11 @@ function Box({ position = [0, 0, 0] }: { position?: [number, number, number] }) 
 }
 
 export default function Home() {
-
+  const router = useRouter();
   return (
-    <Canvas gl={{ alpha: false }} camera={{ position: [0, -12, 16] }}>
+    <Canvas className={styles.canvas} gl={{ alpha: false }} camera={{ position: [0, -12, 16] }}>
       <OrbitControls
-      zoomSpeed={0.8}
+        zoomSpeed={0.8}
         enableZoom={true}
         enablePan={true}
         enableDamping
@@ -107,7 +121,7 @@ export default function Home() {
         <Plane color={niceColors[17][4]} position={[15, 0, 0]} rotation={[0, -0.9, 0]} />
         <Plane color={niceColors[17][4]} position={[0, 6, 0]} rotation={[0.9, 0, 0]} />
         <Plane color={niceColors[17][4]} position={[0, -10, 0]} rotation={[-0.9, 0, 0]} />
-        <Box position={[0, 0, 0]} />
+        <Box onClick={() => Router.push("/examples")} position={[0, 0, 0]} />
       </Physics>
     </Canvas>
   )
