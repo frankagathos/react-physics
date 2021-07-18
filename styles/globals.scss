@@ -9,7 +9,12 @@ body {
 a {
   text-decoration: none;
 }
-
+main{
+  a {
+    text-decoration: none;
+    color: #00FF00 !important;
+  }
+}
 * {
   box-sizing: border-box;
 }
@@ -20,7 +25,7 @@ canvas {
   height: 100%;
   margin: 0;
   padding: 0;
- 
+
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -30,11 +35,11 @@ canvas {
   overflow: hidden;
 }
 
-.alert{
- padding:5px;
- display:flex;
- align-items: center;
- justify-content: space-between;
- top:unset!important;
- width:100%;
+.alert {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  top: unset !important;
+  width: 100%;
 }

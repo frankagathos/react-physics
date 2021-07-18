@@ -18,8 +18,8 @@ const Examples: NextPage<Props> = () => {
                 <meta name="description" content="Examples of 3D scenes with react three fiber components. 3D react components." />
             </Head>
             <Container>
-                <Heading>Examples</Heading>
-                <Text>Examples of 3D scenes with react-three-fiber components.</Text>
+                <Heading>React Physics Examples</Heading>
+                <Text>Examples of 3D scenes built with react-three-fiber.</Text>
 
 
                 {NAV_ITEMS[0].children && NAV_ITEMS[0].children.map((navItem) => (

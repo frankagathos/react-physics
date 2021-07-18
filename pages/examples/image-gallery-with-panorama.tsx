@@ -5,9 +5,8 @@ import { Setup } from '../../components/Setup'
 import * as THREE from "three";
 import { useLoader } from '@react-three/fiber';
 import { Billboard } from '@react-three/drei'
-import { useState } from 'react';
 
-const MainPano = ({ url }: { url: string }) => {
+const MainPanorama = ({ url }: { url: string }) => {
     const mainTexture = useLoader(THREE.TextureLoader, url);
     return (
         <mesh scale={[-1, 1, 1]}>
@@ -16,6 +15,7 @@ const MainPano = ({ url }: { url: string }) => {
         </mesh>
     );
 };
+
 const MeshWithTexture = ({ url }: { url: string }) => {
     const mainTexture = useLoader(THREE.TextureLoader, url);
     return (
@@ -28,14 +28,12 @@ const MeshWithTexture = ({ url }: { url: string }) => {
 
 const BillBoardWithImagePage: NextPage = () => {
 
-    const [cameraPosition, setcameraPosition] = useState(new THREE.Vector3(0, 0, -10))
-
     return (
         <>
             <Head>
-                <meta name="description" content="3d Image gallery" />
+                <meta name="description" content="3d Image gallery scene" />
             </Head>
-            <Setup controls={true} cameraPosition={cameraPosition}>
+            <Setup controls={true} cameraPosition={new THREE.Vector3(0, 0, -10)}>
                 <Billboard
                     position={[0, 4, 0]}
                     args={[5, 3]}
@@ -107,7 +105,7 @@ const BillBoardWithImagePage: NextPage = () => {
                 </Billboard>
 
                 <Suspense fallback={"Loading pano..."}>
-                    <MainPano url={"../panorama.jpg"} />
+                    <MainPanorama url={"../panorama.jpg"} />
                 </Suspense>
             </Setup>
         </>

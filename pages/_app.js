@@ -8,7 +8,8 @@ const theme = extendTheme({
   components: {
     Container: {
       baseStyle: {
-        paddingTop: '25px'
+        paddingTop: '25px',
+        maxWidth:'100%'
       },
     },
     Heading: {
