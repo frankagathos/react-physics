@@ -1,7 +1,7 @@
 import { Random } from "react-animated-text"
 import React from "react"
 import Link from 'next/link';
-import styles from './animated-logo.module.scss'
+import styles from './animatedLogo.module.scss'
 
 interface Props {
     heading: string

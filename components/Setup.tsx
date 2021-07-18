@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as THREE from 'three'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
-
+import styles from './setup.module.scss'
 
 export function Setup({
     children,
@@ -15,6 +15,7 @@ export function Setup({
     if (typeof window !== "undefined") {
         return (
             <Canvas
+                className={styles.canvas}
                 shadows
                 camera={{ position: cameraPosition, fov: cameraFov }}
                 // dpr={window.devicePixelRatio || 1}
@@ -30,7 +31,7 @@ export function Setup({
             </Canvas>
         )
     }
-    else{
-        return(null)
+    else {
+        return (null)
     }
 }

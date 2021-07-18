@@ -5,10 +5,10 @@ import { Setup } from '../components/Setup'
 import * as THREE from "three";
 import { useLoader } from '@react-three/fiber';
 import { Billboard } from '@react-three/drei'
+import { useState } from 'react';
 
 const MainPano = ({ url }: { url: string }) => {
     const mainTexture = useLoader(THREE.TextureLoader, url);
-
     return (
         <mesh scale={[-1, 1, 1]}>
             <sphereBufferGeometry args={[500, 60, 40]} />
@@ -25,13 +25,52 @@ const MeshWithTexture = ({ url }: { url: string }) => {
         />
     );
 };
+
+
+function TextMesh(props) {
+  const mesh = useRef(null)
+
+  useFrame(() => {
+    mesh.current.rotation.x += 0.01
+    mesh.current.rotation.y += 0.01
+    mesh.current.rotation.z += 0.01
+    mesh.current.geometry.center()
+  })
+
+  // parse JSON file with Three
+  const font = new THREE.FontLoader().parse(Roboto);
+
+  // configure font geometry
+  const textOptions = {
+    font,
+    size: 10,
+    height: 1
+  };
+
+  const three_texture = new THREE.TextureLoader().load(texture)
+  three_texture.wrapS = THREE.RepeatWrapping
+  three_texture.wrapT = THREE.RepeatWrapping
+  three_texture.repeat.set(0.1, 0.1);
+
+  return (
+    <mesh position={[0, 0, -10]} ref={mesh}>
+      <textGeometry attach='geometry' args={['three.js', textOptions]} />
+      <meshBasicMaterial attach='material' args={{ map: three_texture }}/>
+    </mesh>
+  )
+}
+
+
 const BillBoardWithImagePage: NextPage = () => {
+
+    const [cameraPosition, setcameraPosition] = useState(new THREE.Vector3(0, 0, -10))
+
     return (
         <>
             <Head>
                 <meta name="description" content="3d Image gallery" />
             </Head>
-            <Setup controls={true} cameraPosition={new THREE.Vector3(0, 0, -10)}>
+            <Setup controls={true} cameraPosition={cameraPosition}>
                 <Billboard
                     position={[0, 4, 0]}
                     args={[5, 3]}

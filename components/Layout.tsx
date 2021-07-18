@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from "next/head";
 import WithSubnavigation from './Header';
-import styles from '../styles/Layout.module.css'
+import styles from './Layout.module.scss'
 import Footer from './Footer';
 import CookieConsent from "react-cookie-consent";
 

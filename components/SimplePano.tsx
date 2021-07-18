@@ -4,7 +4,7 @@ import React, { Suspense } from "react";
 import { useLoader, Canvas } from '@react-three/fiber';
 import { OrbitControls } from "@react-three/drei";
 import { NextPage } from 'next'
-import styles from '../styles/room.module.scss'
+import styles from './simplePano.module.scss'
 interface Props {
     autoRotate: boolean
 }
