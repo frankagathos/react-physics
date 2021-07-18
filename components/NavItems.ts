@@ -29,7 +29,7 @@ export const NAV_ITEMS: Array<NavItem> = [
       {
         label: "Panorama",
         subLabel: "Beach panorama in three.js fiber",
-        href: `${examples}/panorama`,
+        href: `/${examples}/panorama`,
       },
       {
         label: "Room",

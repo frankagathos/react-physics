@@ -4,5 +4,5 @@ module.exports = {
     priority: 0.7,
     sitemapSize: 5000,
     generateRobotsTxt: true,
-    exclude: ['/football', '/euro-football'],
+    exclude: ['/examples/football', 'examples/euro-football'],
   }
