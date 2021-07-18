@@ -24,7 +24,7 @@ const Football = () => {
             </Head>
             <Heading>Simple fetch example</Heading>
             <Text>Fetch Italy's top scorers</Text>
-            <br></br>
+
             {data &&
 
                 <UnorderedList>
