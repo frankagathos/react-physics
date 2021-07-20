@@ -1,8 +1,6 @@
 import { NextPage } from 'next'
 import React from 'react'
-import { Canvas } from '@react-three/fiber'
 import Head from 'next/head'
-import Box from '../components/objects/box'
 import { Heading, Text, ListItem, ListIcon, OrderedList, UnorderedList, Container } from '@chakra-ui/react'
 import { NAV_ITEMS } from '../components/NavItems'
 import Link from 'next/link'
@@ -19,8 +17,7 @@ const Examples: NextPage<Props> = () => {
             </Head>
             <Container>
                 <Heading>React Physics Examples</Heading>
-                <Text>Examples of 3D scenes built with react-three-fiber.</Text>
-
+                <Text>Maintained examples of 3D scenes built with react-three-fiber.</Text>
 
                 {NAV_ITEMS[0].children && NAV_ITEMS[0].children.map((navItem) => (
                     navItem.href &&

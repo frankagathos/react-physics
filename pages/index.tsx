@@ -34,7 +34,6 @@ function Box({ position = [0, 0, 0], onClick }: { position?: [number, number, nu
     textAlign: "center",
     materialType: "MeshPhongMaterial"
   }
-  const mesh = useRef<THREE.Mesh>(null!)
   const [hovered, setHover] = useState(false)
 
   useEffect(() => {
@@ -42,8 +41,12 @@ function Box({ position = [0, 0, 0], onClick }: { position?: [number, number, nu
   }, [hovered])
 
   return (
-    <mesh ref={ref} castShadow receiveShadow onClick={onClick} scale={hovered ? 1.5 : 1}
-
+    <mesh
+      ref={ref}
+      castShadow
+      receiveShadow
+      onClick={onClick}
+      scale={hovered ? 1.5 : 1}
       onPointerOver={(event) => setHover(true)}
       onPointerOut={(event) => setHover(false)}>
 
