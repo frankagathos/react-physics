@@ -11,7 +11,7 @@ export default function Clouds() {
 
     const opts = {
         font: "Orbitron",
-        fontSize: 3,
+        fontSize: 2,
         color: "#045206",
         maxWidth: 250,
         lineHeight: 1,
@@ -36,7 +36,7 @@ export default function Clouds() {
                         anchorX="center"
                         anchorY="middle"
                     >
-                        <meshPhongMaterial attach="material" side={DoubleSide} color={opts.color} />
+                        <meshPhongMaterial attach="material" side={DoubleSide} />
                     </text>
                 </Suspense>
             </Setup>
