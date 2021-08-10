@@ -4,17 +4,28 @@ import WithSubnavigation from './Header';
 import styles from './Layout.module.scss'
 import Footer from './Footer';
 import CookieConsent from "react-cookie-consent";
+import { DefaultSeo } from 'next-seo';
 
 const Layout: React.FC = ({ children }) => {
     return (
         <>
+        {/* this might need updating */}
+            <DefaultSeo
+                openGraph={{
+                    type: 'website',
+                    locale: 'en_IE',
+                    url: 'https://www.reactphysics.com/',
+                    site_name: 'React Physics',
+                    description: 'React physics, 3D Components built with three.js fiber in next.js',
+                }}
+            />
             <Head>
                 <title>React Physics</title>
                 <meta charSet="utf-8" />
                 <link rel="icon" href="/favicon.ico" />
                 <meta name="author" content="Frank Agathos (Frantzeskos Agathos) Front end developer - Physics."></meta>
                 <meta name="keywords" content="3D components, React, Physics, React.js, Three.js, Three.js fiber, React three fiber, VR, Science , javascript, API integration, API, React-Redux , 3D web components, next.js"></meta>
-                <meta name="description" content="React physics. 3D Components built with three.js fiber in a next.js app with typescript. Data fetching examples and more." />
+                <meta name="description" content="React physics, 3D Components built with three.js fiber in next.js. Data fetching examples and more." />
                 {/* Global Site Tag (gtag.js) - Google Analytics */}
                 <script
                     async
