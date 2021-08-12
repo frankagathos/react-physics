@@ -17,6 +17,14 @@ const Layout: React.FC = ({ children }) => {
                     url: 'https://www.reactphysics.com/',
                     site_name: 'React Physics',
                     description: 'React physics, 3D Components built with three.js fiber in next.js',
+                    images:[
+                        {
+                          url: '/react-physics.jpg',
+                          width: 1200,
+                          height: 627,
+                          alt: 'Og Image Alt',
+                        }
+                      ],
                 }}
             />
             <Head>
