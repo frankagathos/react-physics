@@ -16,7 +16,7 @@ const Layout: React.FC = ({ children }) => {
                     locale: 'en_IE',
                     url: 'https://www.reactphysics.com/',
                     site_name: 'React Physics',
-                    description: 'React physics, 3D Components built with three.js fiber in next.js',
+                    description: 'React physics - 3D Components built with react-three-fiber in next.js',
                     images:[
                         {
                           url: '/react-physics.jpg',
@@ -32,7 +32,7 @@ const Layout: React.FC = ({ children }) => {
                 <meta charSet="utf-8" />
                 <link rel="icon" href="/favicon.ico" />
                 <meta name="author" content="Frank Agathos (Frantzeskos Agathos) Front end developer - Physics."></meta>
-                <meta name="keywords" content="3D components, React, Physics, React.js, Three.js, Three.js fiber, React three fiber, VR, Science , javascript, API integration, API, React-Redux , 3D web components, next.js"></meta>
+                <meta name="keywords" content="3D components, React,three.js examples, react-three-fiber, Physics, React.js, Three.js, Three.js fiber, React three fiber, VR, Science , javascript, API integration, API, React-Redux , 3D web components, next.js"></meta>
                 <meta name="description" content="React physics, 3D Components built with three.js fiber in next.js. Data fetching examples and more." />
                 {/* Global Site Tag (gtag.js) - Google Analytics */}
                 <script
