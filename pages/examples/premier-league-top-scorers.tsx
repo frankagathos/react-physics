@@ -2,14 +2,14 @@ import React, { Suspense, useState } from 'react'
 import Head from 'next/head'
 import { useEffect } from 'react';
 import { ListItem, UnorderedList, Heading, Text, Container } from "@chakra-ui/react"
-import { Billboard, OrbitControls } from '@react-three/drei';
+import { Billboard } from '@react-three/drei';
 import { Setup } from '../../components/Setup';
 
 import { useLoader } from '@react-three/fiber';
 import * as THREE from "three";
 
 const MainPano = () => {
-    const mainTexture = useLoader(THREE.TextureLoader, "../panorama.jpg");
+    const mainTexture = useLoader(THREE.TextureLoader, "../stadium360A.jpg");
 
     return (
         <mesh scale={[-1, 1, 1]}>
@@ -18,7 +18,7 @@ const MainPano = () => {
         </mesh>
     );
 };
-const Mesh = ({url}:{url:string}) => {
+const Mesh = ({ url }: { url: string }) => {
     const mainTexture = useLoader(THREE.TextureLoader, "../italy.png");
 
     return (
@@ -31,22 +31,20 @@ const Mesh = ({url}:{url:string}) => {
 
 const Football = () => {
     const authToken = '6417a0e1c04349f0884be2088bd27d91';
-    const [data, setData] = useState<null | any>(null)
-    const follow = true
+    const [topScorers, setTopScorers] = useState<null | any>(null)
+    const follow = false
     const lockX = false
     const lockY = false
     const lockZ = false
-    // const texture2 = useLoader(THREE.TextureLoader, "../test_pano.jpg");
-
 
     useEffect(() => {
-        fetch('https://api.football-data.org/v2/competitions/EC/scorers', {
+        fetch('https://api.football-data.org/v2/competitions/PL/scorers', {
             headers: {
                 'X-Auth-Token': authToken
             }
         })
             .then(response => response.json())
-            .then(data => setData(data));
+            .then(data => setTopScorers(data));
     }, [])
 
     return (
@@ -54,21 +52,21 @@ const Football = () => {
             <Head>
                 <meta name="description" content="Fetch data from football-data.org API. Data fetching example in next.js." />
             </Head>
-            <Heading>Euro 21 top scorers</Heading>
-            <br></br>
-            {data &&
-
-                <UnorderedList>
-                    {data.scorers.map((scorer: any) => {
-                        return (
-                            <ListItem><span>{scorer.player.name}:</span> <span>{scorer.numberOfGoals}</span></ListItem>
-                        )
-                    })
-                    }
-                </UnorderedList>}
+            
+            <Container>
+                <Heading>Premier league top scorers</Heading>
+                {topScorers && topScorers.scorers &&
+                    <UnorderedList>
+                        {topScorers.scorers.map((scorer: any) => {
+                            return (
+                                <ListItem><span>{scorer.player.name}:</span> <span>{scorer.numberOfGoals}</span></ListItem>
+                            )
+                        })
+                        }
+                    </UnorderedList>}
+            </Container>
 
             <Setup controls={true} cameraPosition={new THREE.Vector3(0, 0, 10)}>
-                <>
                     <Billboard
                         position={[-4, 0, 0]}
                         args={[3, 2]}
@@ -125,7 +123,6 @@ const Football = () => {
                     <Suspense fallback={"Loading pano..."}>
                         <MainPano />
                     </Suspense>
-                </>
             </Setup>
         </div>
     )

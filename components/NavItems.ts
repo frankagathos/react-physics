@@ -20,6 +20,10 @@ export const NAV_ITEMS: Array<NavItem> = [
         label: "Image gallery",
         subLabel: "3d Image gallery",
         href: `/${examples}/image-gallery-with-panorama`,
+      },      {
+        label: "Image gallery auto rotate",
+        subLabel: "Lionel Messi 3d Image gallery",
+        href: `/${examples}/image-gallery-lionel-messi`,
       },
       {
         label: "3D Text",

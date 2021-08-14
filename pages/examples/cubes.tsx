@@ -4,11 +4,7 @@ import { Canvas } from '@react-three/fiber'
 import Head from 'next/head'
 import Box from '../../components/objects/box'
 
-interface Props {
-
-}
-
-const Cubes: NextPage<Props> = () => {
+const Cubes: NextPage = () => {
     return (
         <>
             <Head>
