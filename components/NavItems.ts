@@ -5,12 +5,17 @@ export interface NavItem {
   href?: string;
 }
 
-const examples="examples";
+const examples = "examples";
 
 export const NAV_ITEMS: Array<NavItem> = [
   {
     label: `${examples}`,
     children: [
+      {
+        label: "Intro animation cube",
+        subLabel: "clickable animated cube",
+        href: `/${examples}/box-animation`,
+      },
       {
         label: "Clouds",
         subLabel: "Clouds with text",
@@ -20,7 +25,8 @@ export const NAV_ITEMS: Array<NavItem> = [
         label: "Image gallery",
         subLabel: "3d Image gallery",
         href: `/${examples}/image-gallery-with-panorama`,
-      },      {
+      },
+      {
         label: "Image gallery auto rotate",
         subLabel: "Lionel Messi 3d Image gallery",
         href: `/${examples}/image-gallery-lionel-messi`,
@@ -69,6 +75,6 @@ export const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Useful links",
-    href:'/useful-links'
+    href: "/useful-links",
   },
 ];
