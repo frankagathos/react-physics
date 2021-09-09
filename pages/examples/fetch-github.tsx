@@ -1,4 +1,4 @@
-import { NextPage } from 'next'
+import { NextPage, NextPageContext } from 'next'
 import React from 'react'
 import { Heading, Text, Container } from "@chakra-ui/react"
 import Text3d from '../../components/Text3d'
@@ -20,7 +20,7 @@ const FetchGithub: NextPage<Props> = ({ name, stars }) => {
 }
 
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context:NextPageContext) {
     const res = await fetch('https://api.github.com/repos/mrdoob/three.js/')
     const json = await res.json()
     return {

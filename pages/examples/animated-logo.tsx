@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head';
 import React from 'react'
-import AnimatedLogo from './../../components/AnimatedLogo';
+import Logo from '../../components/Logo';
 
 
 const AnLogoExample = () => {
@@ -12,7 +12,7 @@ const AnLogoExample = () => {
             </Head>
 
             <div className={'container'}>
-                <AnimatedLogo heading={'Cool Named Logo'} subHeading={'Description goes here'} logoWidth={200}></AnimatedLogo>
+                <Logo heading={'Cool Named Logo'} subHeading={'Description goes here'} logoWidth={200}></Logo>
             </div>
         </>
     )

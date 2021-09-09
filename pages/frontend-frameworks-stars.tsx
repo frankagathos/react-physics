@@ -19,7 +19,6 @@ const FrontEndFrameworksStars: NextPage<Props> = ({ uiFrameworks }) => {
                 <Text>Night skies pages created with github stars fetched from github API and next.js dynamic routing using getStaticProps.</Text>
                 <UnorderedList>
                     {uiFrameworks.map((item, index) => (
-                        <>
                             <ListItem style={{ textTransform: 'capitalize' }} key={index}>
                                 <Link
                                     href={`frontend-frameworks-stars/${item.name}?stars=${item.stargazers_count}`}>
@@ -28,7 +27,6 @@ const FrontEndFrameworksStars: NextPage<Props> = ({ uiFrameworks }) => {
                                     </a>
                                 </Link>
                             </ListItem>
-                        </>
                     ))}
                 </UnorderedList>
             </Container>

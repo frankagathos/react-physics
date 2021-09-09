@@ -24,7 +24,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons';
-import AnimatedLogo from './AnimatedLogo';
+import Logo from './Logo';
 import { NavItem, NAV_ITEMS } from './NavItems';
 
 export default function WithSubnavigation() {
@@ -57,7 +57,7 @@ export default function WithSubnavigation() {
         </Flex>
         <Flex flex={{ base: 1 }} alignItems={'center'} justify={{ base: 'center', md: 'start' }}>
           <Box>
-            <AnimatedLogo heading={'React Physics'} subHeading={'3D Components for the web'} logoWidth={130} />
+            <Logo heading={'React Physics'} subHeading={'3D Components for the web'} logoWidth={130} />
 
           </Box>
 
@@ -192,13 +192,12 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
     <Stack spacing={4} onClick={children && onToggle}>
       <Flex
         py={2}
-        as={Link}
-        href={href ?? '#'}
         justify={'space-between'}
         align={'center'}
         _hover={{
           textDecoration: 'none',
         }}>
+
         <Text
           style={{ marginBottom: 0 }}
           fontWeight={600}
@@ -238,8 +237,5 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         </Stack>
       </Collapse>
     </Stack>
-  );
+  )
 };
-
-
-

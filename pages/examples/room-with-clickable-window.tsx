@@ -9,13 +9,13 @@ import { useRouter } from 'next/router'
 interface Props {
 
 }
-const PanoHotspot = ({router}) => {
+const PanoHotspot = ({ router }: { router: any }) => {
     const texture = useLoader(THREE.TextureLoader, "../test_pano_layer.jpg");
     const [canvasCreated, setCanvasCreated] = useState(false);
     const [canClick, setCanClick] = useState(false);
     const { camera } = useThree();
     const self = useRef();
-   
+
 
     let canvas2d: CanvasRenderingContext2D | null;
     const raycaster = new THREE.Raycaster();
@@ -34,20 +34,21 @@ const PanoHotspot = ({router}) => {
         }
     }, 600);
 
-    const checkIfHit = (event) => {
+    const checkIfHit = (event: any) => {
         let mouse = new THREE.Vector2();
 
         mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
         mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
         raycaster.setFromCamera(mouse, camera);
-
+        // @ts-ignore
         const intersects = raycaster.intersectObjects([self.current]);
 
         if (intersects.length > 0) {
             if (canvas2d) {
-                
+                // @ts-ignore 
                 let x = canvas.width * intersects[0].uv.x;
+                // @ts-ignore
                 let y = canvas.height * (1 - intersects[0].uv.y);
 
                 let pixel = canvas2d.getImageData(x, y, 1, 1).data;
@@ -105,9 +106,9 @@ const MainPano = () => {
 };
 
 const Room: NextPage<Props> = () => {
-    
-   const router = useRouter();
-//  router hook not working inside components so passing it 
+
+    const router = useRouter();
+    //  router hook not working inside components so passing it 
     return (
         <div className={styles.room}>
             <Canvas camera={{ fov: 55, position: [0, 0, 0.1] }}>
@@ -121,7 +122,7 @@ const Room: NextPage<Props> = () => {
                 />
                 <Suspense fallback={"Loading pano..."}>
                     <MainPano />
-                    <PanoHotspot router={router}/> 
+                    <PanoHotspot router={router} />
                 </Suspense>
             </Canvas>
         </div>

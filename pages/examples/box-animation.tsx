@@ -4,6 +4,7 @@ import Router from "next/router";
 import { Canvas, extend, } from '@react-three/fiber'
 import { Physics, useBox, usePlane } from '@react-three/cannon'
 import niceColors from 'nice-color-palettes'
+// @ts-ignore
 import { Text } from "troika-three-text";
 import fonts from '../../fonts/fonts'
 import { OrbitControls } from '@react-three/drei'
@@ -12,7 +13,7 @@ import { DomEvent, ThreeEvent } from '@react-three/fiber/dist/declarations/src/c
 import styles from '../../components/setup.module.scss'
 extend({ Text });
 
-function Plane({ color, ...props }) {
+function Plane({ color,position, ...props }:{color?:string,position?:number[],rotation?:number[]}) {
   const [ref] = usePlane(() => ({ ...props }))
   return (
     <mesh ref={ref} receiveShadow>
@@ -58,7 +59,9 @@ function Box({ position = [0, 0, 0], onClick }: { position?: [number, number, nu
         position-y={position[1]}
         position-z={position[2] + 2.01}
         {...opts}
+        // @ts-ignore
         text={'Welcome'}
+        // @ts-ignore
         font={fonts[opts.font]}
         anchorX="center"
         anchorY="middle"
@@ -74,7 +77,9 @@ function Box({ position = [0, 0, 0], onClick }: { position?: [number, number, nu
         position-z={position[2]}
         rotation={[Math.PI / 2, 0, 0, 'XYZ']}
         {...opts}
+        // @ts-ignore
         text={'React'}
+        // @ts-ignore
         font={fonts[opts.font]}
         anchorX="center"
         anchorY="middle"
@@ -90,7 +95,9 @@ function Box({ position = [0, 0, 0], onClick }: { position?: [number, number, nu
         position-z={position[2] - 2.1}
         rotation={[Math.PI, 0, 0, 'XYZ']}
         {...opts}
+        // @ts-ignore
         text={'Physics'}
+        // @ts-ignore
         font={fonts[opts.font]}
         anchorX="center"
         anchorY="middle"

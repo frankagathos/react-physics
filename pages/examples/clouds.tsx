@@ -4,6 +4,7 @@ import { Setup } from '../../components/Setup'
 import { Vector3, DoubleSide } from 'three'
 import fonts from '../../fonts/fonts'
 import { extend } from '@react-three/fiber'
+// @ts-ignore
 import { Text } from "troika-three-text";
 import styles from "./clouds.module.scss"
 export default function Clouds() {
@@ -31,7 +32,9 @@ export default function Clouds() {
                     <text
                         position-z={1}
                         {...opts}
+                        // @ts-ignore
                         text={'React Physics'}
+                        // @ts-ignore
                         font={fonts[opts.font]}
                         anchorX="center"
                         anchorY="middle"

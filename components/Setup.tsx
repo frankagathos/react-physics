@@ -11,7 +11,7 @@ export function Setup({
     controls = true,
     lights = true,
     ...restProps
-}) {
+}: { children?: React.ReactNode, cameraFov?: number, cameraPosition?: any, controls?: any, lights?: boolean, restProps?: any }) {
     if (typeof window !== "undefined") {
         return (
             <Canvas

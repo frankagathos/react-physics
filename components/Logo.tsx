@@ -1,4 +1,3 @@
-import { Random } from "react-animated-text"
 import React from "react"
 import Link from 'next/link';
 import styles from './animatedLogo.module.scss'
@@ -9,7 +8,7 @@ interface Props {
     logoWidth: number
 }
 
-const AnimatedLogo: React.FC<Props> = ({ heading, subHeading, logoWidth }) => {
+const Logo: React.FC<Props> = ({ heading, subHeading, logoWidth }) => {
     return (
 
         <Link href={'/'}>
@@ -17,20 +16,12 @@ const AnimatedLogo: React.FC<Props> = ({ heading, subHeading, logoWidth }) => {
                 <div>
                     <span className={styles.heading}>{heading}</span>
                 </div>
-
                 <span className={styles.subHeading}>
-                    <Random
-                        text={subHeading}
-                        iterations={1}
-                        effect="verticalFadeIn"
-                        effectChange={2}
-                        effectDirection="up"
-                    />
+                    {subHeading}
                 </span>
-
             </a>
         </Link>
     )
 }
 
-export default AnimatedLogo
+export default Logo

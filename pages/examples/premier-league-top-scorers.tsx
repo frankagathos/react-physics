@@ -18,7 +18,7 @@ const MainPano = () => {
         </mesh>
     );
 };
-const Mesh = ({ url }: { url: string }) => {
+const Mesh = ({ url }: { url?: string }) => {
     const mainTexture = useLoader(THREE.TextureLoader, "../italy.png");
 
     return (

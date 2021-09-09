@@ -2,6 +2,7 @@ import { Stars } from "@react-three/drei";
 import { ReactElement, Suspense } from "react";
 import { Setup } from './Setup'
 import { extend } from '@react-three/fiber'
+//@ts-ignorets-ignore
 import { Text } from "troika-three-text";
 import fonts from '../fonts/fonts'
 import { Vector3, DoubleSide } from 'three'
@@ -32,7 +33,9 @@ const StarsScene = ({ count, textCopy }: { count: number, textCopy?: string | st
                     <text
                         position-z={1}
                         {...opts}
+                        //@ts-ignore
                         text={textCopy+"\n"+count+" stars"}
+                        //@ts-ignore
                         font={fonts[opts.font]}
                         anchorX="center"
                         anchorY="middle"
