@@ -13,7 +13,8 @@ import { DomEvent, ThreeEvent } from '@react-three/fiber/dist/declarations/src/c
 import styles from '../../components/setup.module.scss'
 extend({ Text });
 
-function Plane({ color,position, ...props }:{color?:string,position?:number[],rotation?:number[]}) {
+// @ts-ignore
+function Plane({ color, ...props }) {
   const [ref] = usePlane(() => ({ ...props }))
   return (
     <mesh ref={ref} receiveShadow>
@@ -131,8 +132,9 @@ export default function BoxAnimation() {
         <Plane color={niceColors[17][4]} position={[15, 0, 0]} rotation={[0, -0.9, 0]} />
         <Plane color={niceColors[17][4]} position={[0, 6, 0]} rotation={[0.9, 0, 0]} />
         <Plane color={niceColors[17][4]} position={[0, -10, 0]} rotation={[-0.9, 0, 0]} />
-        <Box onClick={() => Router.push("/")} position={[0, 0, 0]} />
+        <Box onClick={() => Router.push("/examples")} position={[0, 0, 0]} />
       </Physics>
     </Canvas>
   )
 }
+
