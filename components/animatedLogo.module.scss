@@ -1,17 +1,17 @@
 $color: #045206;
 $breakingPoint: 500px;
 
-
 @font-face {
-  font-family: "GoldmanBold";
-  src: local("GoldmanBold"),
-    url("https://fonts.gstatic.com/s/syncopate/v9/pe0sMIuPIYBCpEV5eFdCBfe5.woff") format("woff");
+  font-family: 'GoldmanBold';
+  src: local('GoldmanBold'),
+    url('https://fonts.gstatic.com/s/syncopate/v9/pe0sMIuPIYBCpEV5eFdCBfe5.woff')
+      format('woff');
 }
 
 .animatedLogo {
   color: $color;
   font-weight: 800;
-  font-family: "GoldmanBold";
+  font-family: 'GoldmanBold';
   font-size: 10px;
   line-height: 14px;
 
@@ -22,12 +22,15 @@ $breakingPoint: 500px;
   .subHeading {
     font-size: 15px;
     font-family: 'Segoe UI';
-    font-weight:600;
+    font-weight: 600;
     font-weight: normal;
     text-transform: none;
-    span{text-transform: none;font-weight: 500;}
-  }
 
+    span {
+      text-transform: none;
+      font-weight: 500;
+    }
+  }
 
   @media screen and (max-width: $breakingPoint) {
     .heading {
@@ -35,7 +38,7 @@ $breakingPoint: 500px;
     }
 
     .subHeading {
-      font-size: 12px
+      font-size: 12px;
     }
   }
 }

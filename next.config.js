@@ -30,7 +30,7 @@ module.exports = {
         //   name: '[name].[ext]' // keep the original name
         // }
       },
-    });
+    })
     return config
   },
 }
