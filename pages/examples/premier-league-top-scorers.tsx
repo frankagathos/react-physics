@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { ListItem, UnorderedList, Heading, Text, Container } from "@chakra-ui/react"
 import { Billboard } from '@react-three/drei';
 import { Setup } from '../../components/Setup';
-
+import Roboto from '../../fonts/Roboto_Regular.json'
 import { useLoader } from '@react-three/fiber';
 import * as THREE from "three";
 
@@ -28,10 +28,24 @@ const Mesh = ({ url }: { url?: string }) => {
         />
     );
 };
-
-const Football = () => {
+function Text3d({ text }: { text: string }) {
+    const font = new THREE.FontLoader().parse(Roboto);
+    const textOptions = {
+        font,
+        size: 1,
+        height: 1
+    };
+    return (
+        <mesh>
+            <textGeometry attach='geometry' args={[text, textOptions]} />
+            <meshStandardMaterial attach='material' color="hotpink" />
+        </mesh>
+    )
+}
+const PremierLeagueTopScorers = () => {
     const authToken = '6417a0e1c04349f0884be2088bd27d91';
     const [topScorers, setTopScorers] = useState<null | any>(null)
+
     const follow = false
     const lockX = false
     const lockY = false
@@ -52,8 +66,8 @@ const Football = () => {
             <Head>
                 <meta name="description" content="Fetch data from football-data.org API. Data fetching example in next.js." />
             </Head>
-            
-            <Container>
+
+            {/* <Container>
                 <Heading>Premier league top scorers</Heading>
                 {topScorers && topScorers.scorers &&
                     <UnorderedList>
@@ -64,69 +78,95 @@ const Football = () => {
                         })
                         }
                     </UnorderedList>}
-            </Container>
+            </Container> */}
 
-            <Setup controls={true} cameraPosition={new THREE.Vector3(0, 0, 10)}>
-                    <Billboard
-                        position={[-4, 0, 0]}
-                        args={[3, 2]}
-                        material-color="red"
-                        follow={follow}
-                        lockX={lockX}
-                        lockY={lockY}
-                        lockZ={lockZ}
-                    >
-                        <Suspense fallback={"Loading..."}>
-                            <Mesh />
-                        </Suspense>
-                    </Billboard>
-
-
-                    <Billboard
-                        position={[-4, 2, 0]}
-                        args={[3, 2]}
-                        material-color="orange"
-                        follow={follow}
-                        lockX={lockX}
-                        lockY={lockY}
-                        lockZ={lockZ}
-                    />
-                    <Billboard
-                        position={[0, 0, 0]}
-                        args={[3, 2]}
-                        material-color="green"
-                        follow={follow}
-                        lockX={lockX}
-                        lockY={lockY}
-                        lockZ={lockZ}
-                    />
-                    <Billboard
-                        position={[4, -2, 0]}
-                        args={[3, 2]}
-                        material-color="blue"
-                        follow={follow}
-                        lockX={lockX}
-                        lockY={lockY}
-                        lockZ={lockZ}
-                    />
-                    <Billboard
-                        position={[4, 2, 0]}
-                        args={[3, 2]}
-                        material-color="yellow"
-                        follow={follow}
-                        lockX={lockX}
-                        lockY={lockY}
-                        lockZ={lockZ}
-                    />
-
-
-                    <Suspense fallback={"Loading pano..."}>
-                        <MainPano />
+            <Setup controls={true} cameraPosition={new THREE.Vector3(0, 0, 30)}>
+                {/* <Billboard
+                    position={[-4, 0, 0]}
+                    args={[3, 2]}
+                    material-color="red"
+                    follow={follow}
+                    lockX={lockX}
+                    lockY={lockY}
+                    lockZ={lockZ}
+                >
+                    <Suspense fallback={"Loading..."}>
+                        <Mesh />
                     </Suspense>
+                </Billboard> */}
+
+                {topScorers && topScorers.scorers &&
+
+                    topScorers.scorers.reverse().map((scorer: any, i: number) => {
+                        return (
+                            <>
+                                <Billboard
+                                    key={i}
+                                    position={[-4, i + 2, 0]}
+                                    args={[50, 25]}
+                                    material-color="black"
+                                    follow={follow}
+                                    lockX={lockX}
+                                    lockY={lockY}
+                                    lockZ={lockZ}
+                                >
+                                    <Text3d text={`${scorer.player.name} ${scorer.numberOfGoals}`} />
+                                </Billboard>
+                                {/* below not working */}
+                                {/* <Billboard
+                                    key={i}
+                                    position={[9, i + 2, 0]}
+                                    args={[3, 3]}
+                                    material-color="red"
+                                    follow={follow}
+                                    lockX={lockX}
+                                    lockY={lockY}
+                                    lockZ={lockZ}
+                                >
+                                    <Text3d text={scorer.numberOfGoals} />
+                                </Billboard> */}
+                            </>
+                        )
+                    })
+                }
+                
+                {/* 
+                <Billboard
+                    position={[0, 0, 0]}
+                    args={[3, 2]}
+                    material-color="green"
+                    follow={follow}
+                    lockX={lockX}
+                    lockY={lockY}
+                    lockZ={lockZ}
+                />
+                <Billboard
+                    position={[4, -2, 0]}
+                    args={[3, 2]}
+                    material-color="blue"
+                    follow={follow}
+                    lockX={lockX}
+                    lockY={lockY}
+                    lockZ={lockZ}
+                />
+                <Billboard
+                    position={[4, 2, 0]}
+                    args={[3, 2]}
+                    material-color="yellow"
+                    follow={follow}
+                    lockX={lockX}
+                    lockY={lockY}
+                    lockZ={lockZ}
+                /> */}
+
+
+                <Suspense fallback={"Loading pano..."}>
+                    <MainPano />
+                </Suspense>
             </Setup>
         </div>
     )
 }
 
 
-export default Football
+export default PremierLeagueTopScorers
