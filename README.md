@@ -1,6 +1,6 @@
 ## React Physics
 
-Platform build with next.js containing three.js fiber 3D components examples.
+App build with next.js containing 3D components examples.
 
 ## Getting Started
 
