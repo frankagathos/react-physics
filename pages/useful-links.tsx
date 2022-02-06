@@ -1,10 +1,9 @@
 import { NextPage } from 'next'
 import React from 'react'
-import { Canvas } from '@react-three/fiber'
 import Head from 'next/head'
 import Box from '../components/objects/box'
 import { Heading, Text, ListItem, ListIcon, OrderedList, UnorderedList, Container } from '@chakra-ui/react'
-import { NAV_ITEMS } from '../components/NavItems'
+import { NAV_ITEMS } from '../NavItems'
 import Link from 'next/link'
 
 interface Props {

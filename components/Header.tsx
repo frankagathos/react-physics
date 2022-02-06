@@ -25,7 +25,7 @@ import {
   ChevronRightIcon,
 } from '@chakra-ui/icons';
 import Logo from './Logo';
-import { NavItem, NAV_ITEMS } from './NavItems';
+import { NavItem, NAV_ITEMS } from '../NavItems';
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();

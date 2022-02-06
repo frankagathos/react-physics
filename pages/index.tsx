@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 import React from 'react'
 import Head from 'next/head'
 import { Heading, Text, ListItem, UnorderedList, Container, Divider, SimpleGrid, Box } from '@chakra-ui/react'
-import { NAV_ITEMS } from '../components/NavItems'
+import { NAV_ITEMS } from '../NavItems'
 import Link from 'next/link'
 
 const Home: NextPage = () => {

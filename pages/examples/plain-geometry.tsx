@@ -14,7 +14,7 @@ const PlainGeometry: NextPage = () => {
             <Canvas>
                 <ambientLight />
                 <pointLight position={[10, 10, 10]} />
-                <OrbitControls autoRotate autoRotateSpeed={0.3}  minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} />
+                <OrbitControls autoRotate autoRotateSpeed={0.3} minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} />
                 <mesh>
                     <planeBufferGeometry attach="geometry" args={[1, 1]} />
                     <meshPhongMaterial attach="material" color="green" />

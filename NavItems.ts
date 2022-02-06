@@ -56,6 +56,11 @@ export const NAV_ITEMS: Array<NavItem> = [
         subLabel: "stars example from drei",
         href: `/${examples}/stars`,
       },
+      {
+        label: "Plain Geometry",
+        subLabel: "simple geometry example",
+        href: `/${examples}/plain-geometry`,
+      },
     ],
   },
   {

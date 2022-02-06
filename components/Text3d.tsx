@@ -26,9 +26,9 @@ export default function Text3d({ textCopy, fontSize }: { textCopy: string, fontS
 
   const handleMouseMove = (e: any) => {
 
-    if (e.target.offsetHeight) {
-      console.log(e.target.offsetHeight);
-    }
+    // if (e.target.offsetHeight) {
+    //   console.log(e.target.offsetHeight);
+    // }
 
     setRotation([
       ((e.clientY / e.target.offsetHeight - 1) * -Math.PI) / 8,
