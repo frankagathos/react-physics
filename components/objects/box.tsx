@@ -21,4 +21,3 @@ export default function Box(props: JSX.IntrinsicElements['mesh']) {
     </mesh>
   )
 }
-//test 1
