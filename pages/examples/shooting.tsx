@@ -3,11 +3,20 @@ import React, { Suspense, useEffect, useRef } from 'react'
 import { Heading, Text, Container } from '@chakra-ui/react'
 import { Canvas } from '@react-three/fiber'
 import * as THREE from 'three'
-import { OrbitControls } from '@react-three/drei'
-
-// Need start creating a shooting game
-
+import { useLoader } from '@react-three/fiber'
+import { Environment, OrbitControls } from '@react-three/drei'
+// import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
+// import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
+import { useFBX } from '@react-three/drei'
 interface Props {}
+
+const Trex = () => {
+  // had to use useFBX from drei
+  let fbx = useFBX('../trex.fbx')
+  return (
+    <primitive object={fbx} scale={0.1} position={new THREE.Vector3(0, 0.5, 0)} />
+  )
+}
 
 const Shoot: NextPage<Props> = () => {
   const container = useRef()
@@ -16,26 +25,26 @@ const Shoot: NextPage<Props> = () => {
       {/*  @ts-ignore */}
       <Canvas ref={container}>
         <ambientLight />
-        <OrbitControls
+        {/* <OrbitControls
           enableZoom={true}
           enablePan={false}
           enableDamping
           dampingFactor={0.1}
           autoRotate={false}
           rotateSpeed={-0.15}
-        />
-        {/* <mesh position={new THREE.Vector3(0, 10, 0)}>
-          <gridHelper args={[10, 100]} />
-          <meshPhongMaterial side={THREE.DoubleSide} attach="material" />
-        </mesh> */}
+        /> */}
+
+        <OrbitControls />
         <mesh>
-          <gridHelper
-            args={[10,10]}
-            position={new THREE.Vector3(0, 0.5, 0)}
-          />
+          <gridHelper args={[10, 10]} position={new THREE.Vector3(0, 0.5, 0)} />
           <boxGeometry args={[10, 1, 10]} />
           <meshPhongMaterial side={THREE.DoubleSide} attach="material" />
         </mesh>
+
+        <Suspense fallback={null}>
+          <Trex />
+          <Environment preset="sunset" background />
+        </Suspense>
       </Canvas>
     </Container>
   )
