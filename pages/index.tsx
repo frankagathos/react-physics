@@ -139,7 +139,7 @@ export default function BoxAnimation() {
       <Head>
         <meta
           name="description"
-          content="Examples of 3D scenes with react three fiber components. 3D react components."
+          content="React three fiber maintained examples. Learn how to add Three.js scenes in React.js by examples."
         />
       </Head>
       <Canvas
