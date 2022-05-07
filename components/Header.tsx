@@ -155,6 +155,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   return (
     <NextLink href={href ?? '/puts'}>
       <Stack
+        cursor={'pointer'}
         direction={'row'}
         align={'center'}
         _hover={{ background: '#D3D3D3' }}
