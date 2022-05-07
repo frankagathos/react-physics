@@ -17,6 +17,11 @@ export const NAV_ITEMS: Array<NavItem> = [
         href: `/${examples}/box-animation`,
       },
       {
+        label: 'T Rex model',
+        subLabel: 'Load a T Rex model',
+        href: `/${examples}/t-rex`,
+      },
+      {
         label: 'Clouds',
         subLabel: 'Clouds with text',
         href: `/${examples}/clouds`,

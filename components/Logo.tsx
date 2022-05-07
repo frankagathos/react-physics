@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import styles from './animatedLogo.module.scss'
+import styles from './Logo.module.scss'
 
 interface Props {
   heading: string
@@ -15,7 +15,7 @@ const Logo: React.FC<Props> = ({ heading, subHeading, logoWidth }) => {
         <div>
           <span className={styles.heading}>{heading}</span>
         </div>
-        <span className={styles.subHeading}>{subHeading}</span>
+        {/* <span className={styles.subHeading}>{subHeading}</span> */}
       </a>
     </Link>
   )
