@@ -20,6 +20,7 @@ const Trex = () => {
 const TRex: NextPage<PageProps> = () => {
   return (
     <Canvas
+      style={{ minHeight: '100vh' }}
       camera={{
         position: new THREE.Vector3(-5, 4, 0),
       }}
