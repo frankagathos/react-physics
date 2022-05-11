@@ -1,72 +1,68 @@
-import { NextPage } from 'next'
-import React from 'react'
-import Head from 'next/head'
-import Box from '../components/objects/box'
+import { NextPage } from "next"
+import React from "react"
+import Head from "next/head"
 import {
   Heading,
   Text,
   ListItem,
-  ListIcon,
-  OrderedList,
   UnorderedList,
   Container,
-} from '@chakra-ui/react'
-import { NAV_ITEMS } from '../NavItems'
-import Link from 'next/link'
+  Link,
+  Stack,
+} from "@chakra-ui/react"
+import { ExternalLinkIcon } from "@chakra-ui/icons"
 
 interface Props {}
 const ReadingMaterial: NextPage<Props> = () => {
+  const externalResources = [
+    {
+      link: "https://threejs.org/docs",
+      label: "Three.js-docs",
+    },
+    {
+      link: "https://discoverthreejs.com",
+      label: "Discover Threejs",
+    },
+    {
+      link: "https://threejs.org/examples",
+      label: "Three.js-examples",
+    },
+    {
+      link: "https://discoverthreejs.com/tips-and-tricks",
+      label: "Do's and don'ts for performance and best practices",
+    },
+    {
+      link: "https://alligator.io/react/react-with-threejs",
+      label: "react-three-fiber alligator.io tutorial",
+    },
+  ]
+
   return (
     <>
       <Head>
         <meta
           name="description"
-          content="Resources to learn about three.js and packages."
+          content="Resources to learn three.js and react-three-fiber."
         />
       </Head>
       <Container>
-        <Heading>Useful links</Heading>
-        <Text>Reading resources to learn more about three.js</Text>
-        <UnorderedList>
-          <ListItem>
-            <a href="https://threejs.org/docs" target="_blank">
-              Three.js-docs
-            </a>
-          </ListItem>
-          <ListItem>
-            <a href="https://threejs.org/examples" target="_blank">
-              Three.js-examples
-            </a>
-          </ListItem>
-          <ListItem>
-            <a href="https://threejsfundamentals.org" target="_blank">
-              Three.js-fundamentals
-            </a>
-          </ListItem>
-          <ListItem>
-            <a href="https://discoverthreejs.com" target="_blank">
-              Discover Threejs
-            </a>
-          </ListItem>
-          <ListItem>
-            <a
-              href="https://discoverthreejs.com/tips-and-tricks"
-              target="_blank"
-            >
-              Do's and don'ts for performance and best practices
-            </a>
-          </ListItem>
-          <ListItem>
-            <a
-              href="https://alligator.io/react/react-with-threejs"
-              target="_blank"
-            >
-              react-three-fiber alligator.io tutorial
-            </a>
-          </ListItem>
-        </UnorderedList>
+        {/* <Heading as={"h1"}>Useful links</Heading>
+        <Text>Find below all the links you need.</Text> */}
+        <Heading as={"h2"}>Reading resources</Heading>
+        <Text>Learn more about react three fiber and three.js.</Text>
+        {externalResources.map((extRes, index) => {
+          return (
+            <Stack width={"fit-content"}>
+              <Link key={index} href={extRes.link} isExternal>
+                {extRes.label} <ExternalLinkIcon mx="2px" />
+              </Link>
+            </Stack>
+          )
+        })}
+
         <br></br>
-        <Text>Ecosystem - A list of useful packages:</Text>
+        <Heading as={"h2"}>Ecosystem</Heading>
+        <Text>A list of useful packages.</Text>
         <UnorderedList>
           <ListItem>
             <a href="https://github.com/react-spring/gltfjsx" target="_blank">
