@@ -1,6 +1,6 @@
-import { NextPage } from 'next'
-import React from 'react'
-import Head from 'next/head'
+import { NextPage } from "next"
+import React from "react"
+import Head from "next/head"
 import {
   Heading,
   Text,
@@ -9,9 +9,9 @@ import {
   Container,
   SimpleGrid,
   Box,
-} from '@chakra-ui/react'
-import { NAV_ITEMS } from '../NavItems'
-import Link from 'next/link'
+} from "@chakra-ui/react"
+import { NAV_ITEMS } from "../NavItems"
+import Link from "next/link"
 
 const Home: NextPage = () => {
   return (
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         />
       </Head>
       <Container>
-        <Heading>React Physics Examples</Heading>
+        <Heading>Examples</Heading>
         <Text>
           Maintained examples of 3D components built with react-three-fiber.
         </Text>
