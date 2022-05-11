@@ -1,10 +1,10 @@
-import React from 'react'
-import Head from 'next/head'
-import WithSubnavigation from './Header'
-import styles from './Layout.module.scss'
-import Footer from './Footer'
-import CookieConsent from 'react-cookie-consent'
-import { DefaultSeo } from 'next-seo'
+import React from "react"
+import Head from "next/head"
+import WithSubnavigation from "./Header"
+import styles from "./Layout.module.scss"
+import Footer from "./Footer"
+import CookieConsent from "react-cookie-consent"
+import { DefaultSeo } from "next-seo"
 
 const Layout: React.FC = ({ children }) => {
   return (
@@ -12,18 +12,18 @@ const Layout: React.FC = ({ children }) => {
       {/* this might need updating */}
       <DefaultSeo
         openGraph={{
-          type: 'website',
-          locale: 'en_IE',
-          url: 'https://www.reactphysics.com/',
-          site_name: 'React Physics',
+          type: "website",
+          locale: "en_IE",
+          url: "https://www.reactphysics.com/",
+          site_name: "React Physics",
           description:
-            'React physics - 3D Components built with react-three-fiber in next.js',
+            "React physics - 3D Components built with react-three-fiber in next.js",
           images: [
             {
-              url: '/react-physics.jpg',
+              url: "/react-physics.jpg",
               width: 1200,
               height: 627,
-              alt: 'Og Image Alt',
+              alt: "Og Image Alt",
             },
           ],
         }}
@@ -32,6 +32,10 @@ const Layout: React.FC = ({ children }) => {
         <title>React Physics</title>
         <meta charSet="utf-8" />
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="google-site-verification"
+          content="8tzOYN3dqSwTi-YnD_-4xW8IuvUhED8MqKLS5A2wD-g"
+        />
         <meta
           name="author"
           content="Frank Agathos (Frantzeskos Agathos) Front end developer - Physics."
@@ -69,21 +73,21 @@ const Layout: React.FC = ({ children }) => {
 
       <CookieConsent
         style={{
-          background: '#444',
-          color: 'white',
-          position: 'fixed',
+          background: "#444",
+          color: "white",
+          position: "fixed",
           bottom: 0,
           left: 0,
-          height: 'fit-content',
+          height: "fit-content",
         }}
         buttonStyle={{
-          fontWeight: 'bold',
-          border: '1px solid white',
-          padding: '5px 30px',
-          color: 'white',
+          fontWeight: "bold",
+          border: "1px solid white",
+          padding: "5px 30px",
+          color: "white",
         }}
         disableStyles={true}
-        location={'top'}
+        location={"top"}
         buttonClasses="btn btn-primary"
         containerClasses="alert"
         contentClasses="text-capitalize"
