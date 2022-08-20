@@ -76,7 +76,7 @@ export default function WithSubnavigation() {
         </Flex>
         <Flex>
           <NextLink href={'https://github.com/frankagathos/react-physics'}>
-            <a title="Show me the code">
+            <a target="_blank" title="Show me the code">
               <Image
                 src="/GitHub.png"
                 alt="github icon"
