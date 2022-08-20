@@ -2,8 +2,6 @@ import {
   Heading,
   Text,
   ListItem,
-  ListIcon,
-  OrderedList,
   UnorderedList,
   Container,
 } from '@chakra-ui/react'

@@ -1,13 +1,6 @@
 import React, { Suspense, useState } from 'react'
 import Head from 'next/head'
 import { useEffect } from 'react'
-import {
-  ListItem,
-  UnorderedList,
-  Heading,
-  Text,
-  Container,
-} from '@chakra-ui/react'
 import { Billboard } from '@react-three/drei'
 import { Setup } from '../../components/Setup'
 import Roboto from '../../fonts/Roboto_Regular.json'
@@ -44,6 +37,9 @@ function Text3d({ text }: { text: string }) {
   )
 }
 const PremierLeagueTopScorers = () => {
+  // below token is free
+  // will only work for a few api calls
+  // get your own if you want to work with this example
   const authToken = '6417a0e1c04349f0884be2088bd27d91'
   const [topScorers, setTopScorers] = useState<null | any>(null)
 
@@ -71,34 +67,7 @@ const PremierLeagueTopScorers = () => {
         />
       </Head>
 
-      {/* <Container>
-                <Heading>Premier league top scorers</Heading>
-                {topScorers && topScorers.scorers &&
-                    <UnorderedList>
-                        {topScorers.scorers.map((scorer: any) => {
-                            return (
-                                <ListItem><span>{scorer.player.name}:</span> <span>{scorer.numberOfGoals}</span></ListItem>
-                            )
-                        })
-                        }
-                    </UnorderedList>}
-            </Container> */}
-
       <Setup controls={true} cameraPosition={new THREE.Vector3(0, 0, 30)}>
-        {/* <Billboard
-                    position={[-4, 0, 0]}
-                    args={[3, 2]}
-                    material-color="red"
-                    follow={follow}
-                    lockX={lockX}
-                    lockY={lockY}
-                    lockZ={lockZ}
-                >
-                    <Suspense fallback={"Loading..."}>
-                        <Mesh />
-                    </Suspense>
-                </Billboard> */}
-
         {topScorers &&
           topScorers.scorers &&
           topScorers.scorers.reverse().map((scorer: any, i: number) => {
@@ -118,51 +87,9 @@ const PremierLeagueTopScorers = () => {
                     text={`${scorer.player.name} ${scorer.numberOfGoals}`}
                   />
                 </Billboard>
-                {/* below not working */}
-                {/* <Billboard
-                                    key={i}
-                                    position={[9, i + 2, 0]}
-                                    args={[3, 3]}
-                                    material-color="red"
-                                    follow={follow}
-                                    lockX={lockX}
-                                    lockY={lockY}
-                                    lockZ={lockZ}
-                                >
-                                    <Text3d text={scorer.numberOfGoals} />
-                                </Billboard> */}
               </>
             )
           })}
-
-        {/* 
-                <Billboard
-                    position={[0, 0, 0]}
-                    args={[3, 2]}
-                    material-color="green"
-                    follow={follow}
-                    lockX={lockX}
-                    lockY={lockY}
-                    lockZ={lockZ}
-                />
-                <Billboard
-                    position={[4, -2, 0]}
-                    args={[3, 2]}
-                    material-color="blue"
-                    follow={follow}
-                    lockX={lockX}
-                    lockY={lockY}
-                    lockZ={lockZ}
-                />
-                <Billboard
-                    position={[4, 2, 0]}
-                    args={[3, 2]}
-                    material-color="yellow"
-                    follow={follow}
-                    lockX={lockX}
-                    lockY={lockY}
-                    lockZ={lockZ}
-                /> */}
 
         <Suspense fallback={'Loading pano...'}>
           <MainPano />
