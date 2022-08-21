@@ -1,6 +1,8 @@
 ## React Physics
 
-React three fiber component examples in a next.js app.
+React three fiber components in a next.js app.
+
+See live web app : [https://www.reactphysics.com/](react physics)
 
 ## Getting Started
 
