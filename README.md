@@ -2,7 +2,7 @@
 
 React three fiber components in a next.js app.
 
-See live web app : [https://www.reactphysics.com/](react physics)
+See live web app : [https://reactphysics.com](https://reactphysics.com)
 
 ## Getting Started
 
