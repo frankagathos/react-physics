@@ -73,11 +73,14 @@ const LionelMessi = () => {
       </Head>
 
       <Setup controls={false} cameraPosition={new THREE.Vector3(0, 0, 10)}>
-        {images.map((x) => {
-          return (
-            <MyBillBoard position={x.position} args={x.args} imageUrl={x.url} />
-          )
-        })}
+        {images.map((x, index) => (
+          <MyBillBoard
+            key={`${index}`}
+            position={x.position}
+            args={x.args}
+            imageUrl={x.url}
+          />
+        ))}
 
         <Suspense fallback={'Loading pano...'}>
           <MainPano />
