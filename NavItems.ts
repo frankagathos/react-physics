@@ -37,6 +37,11 @@ export const NAV_ITEMS: Array<NavItem> = [
         href: `/${examples}/image-gallery-lionel-messi`,
       },
       {
+        label: 'Particles',
+        subLabel: 'Simple particles example',
+        href: `/${examples}/particles`,
+      },
+      {
         label: '3D Text',
         subLabel: '3D Text with MouseOnMove event',
         href: `/${examples}/3d-text`,
