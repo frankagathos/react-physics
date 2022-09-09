@@ -13,7 +13,7 @@ import {
 import { NAV_ITEMS } from '../NavItems'
 import Link from 'next/link'
 
-const Home: NextPage = () => {
+const Examples: NextPage = () => {
   return (
     <>
       <Head>
@@ -31,9 +31,9 @@ const Home: NextPage = () => {
           <Box>
             {NAV_ITEMS[0].children &&
               NAV_ITEMS[0].children.map(
-                (navItem) =>
+                (navItem, index) =>
                   navItem.href && (
-                    <UnorderedList>
+                    <UnorderedList key={`${index}`}>
                       <ListItem key={navItem.label}>
                         <Link key={navItem.label} href={navItem.href}>
                           <a>{navItem.label}</a>
@@ -49,4 +49,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default Examples
