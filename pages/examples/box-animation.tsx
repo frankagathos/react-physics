@@ -16,8 +16,7 @@ import {
 import styles from '../../components/setup.module.scss'
 extend({ Text })
 
-// @ts-ignore
-function Plane({ color, ...props }) {
+function Plane({ color, ...props }: any) {
   const [ref] = usePlane(() => ({ ...props }))
   return (
     <mesh ref={ref} receiveShadow>

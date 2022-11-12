@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Router from 'next/router'
 import { Canvas, extend } from '@react-three/fiber'
 import { Physics, useBox, usePlane } from '@react-three/cannon'
