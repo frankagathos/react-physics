@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import styles from './Layout.module.scss'
-import CookieConsent from 'react-cookie-consent'
+// import CookieConsent from 'react-cookie-consent'
 import { DefaultSeo } from 'next-seo'
 import WithSubnavigation from '../components/Header'
 import Footer from '../components/Footer'
@@ -71,7 +71,7 @@ const Layout: React.FC = ({ children }) => {
 
       <main className={styles.main}>{children}</main>
 
-      <CookieConsent
+      {/* <CookieConsent
         style={{
           background: '#444',
           color: 'white',
@@ -94,7 +94,7 @@ const Layout: React.FC = ({ children }) => {
         overlay
       >
         This website uses cookies to enhance the user experience.
-      </CookieConsent>
+      </CookieConsent> */}
       <Footer />
     </>
   )
