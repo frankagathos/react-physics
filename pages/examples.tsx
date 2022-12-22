@@ -36,7 +36,7 @@ const Examples: NextPage = () => {
                     <UnorderedList key={`${index}`}>
                       <ListItem key={navItem.label}>
                         <Link key={navItem.label} href={navItem.href}>
-                          <a>{navItem.label}</a>
+                          {navItem.label}
                         </Link>
                       </ListItem>
                     </UnorderedList>

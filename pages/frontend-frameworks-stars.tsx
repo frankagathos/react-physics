@@ -14,7 +14,7 @@ interface Props {
   uiFrameworks: [any]
 }
 
-const FrontEndFrameworksStars: NextPage<Props> = ({ uiFrameworks }) => {
+const FrontEndFrameworksStars: NextPage<Props> = ({ uiFrameworks }: Props) => {
   return (
     <>
       <Head>
@@ -35,7 +35,7 @@ const FrontEndFrameworksStars: NextPage<Props> = ({ uiFrameworks }) => {
               <Link
                 href={`frontend-frameworks-stars/${item.name}?stars=${item.stargazers_count}`}
               >
-                <a>{item.name}</a>
+                {item.name}
               </Link>
             </ListItem>
           ))}

@@ -10,13 +10,15 @@ interface Props {
 
 const Logo: React.FC<Props> = ({ heading, subHeading, logoWidth }) => {
   return (
-    <Link href={'/'}>
-      <a style={{ width: `${logoWidth}px` }} className={styles.animatedLogo}>
-        <div>
-          <span className={styles.heading}>{heading}</span>
-        </div>
-        {/* <span className={styles.subHeading}>{subHeading}</span> */}
-      </a>
+    <Link
+      style={{ width: `${logoWidth}px` }}
+      className={styles.animatedLogo}
+      href={'/'}
+    >
+      <div>
+        <span className={styles.heading}>{heading}</span>
+      </div>
+      {/* <span className={styles.subHeading}>{subHeading}</span> */}
     </Link>
   )
 }

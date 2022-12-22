@@ -76,14 +76,7 @@ export default function WithSubnavigation() {
         </Flex>
         <Flex>
           <NextLink href={'https://github.com/frankagathos/react-physics'}>
-            <a target="_blank" title="Show me the code">
-              <Image
-                src="/GitHub.png"
-                alt="github icon"
-                width={35}
-                height={35}
-              />
-            </a>
+            <Image src="/GitHub.png" alt="github icon" width={35} height={35} />
           </NextLink>
         </Flex>
       </Flex>
@@ -137,39 +130,37 @@ const DesktopNav = () => {
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   return (
     <NextLink href={href ?? '/'}>
-      <a>
-        <Stack
-          cursor={'pointer'}
-          direction={'row'}
-          align={'center'}
-          _hover={{ background: '#D3D3D3' }}
-        >
-          <Box style={{ cursor: 'pointer', padding: '5px' }}>
-            <Text
-              style={{ marginBottom: 0 }}
-              transition={'all .3s ease'}
-              _groupHover={{ color: 'pink.400' }}
-              fontWeight={500}
-            >
-              {label}
-            </Text>
-            <Text style={{ marginBottom: 0 }} fontSize={'sm'}>
-              {subLabel}
-            </Text>
-          </Box>
-          <Flex
+      <Stack
+        cursor={'pointer'}
+        direction={'row'}
+        align={'center'}
+        _hover={{ background: '#D3D3D3' }}
+      >
+        <Box style={{ cursor: 'pointer', padding: '5px' }}>
+          <Text
+            style={{ marginBottom: 0 }}
             transition={'all .3s ease'}
-            transform={'translateX(-10px)'}
-            opacity={0}
-            _groupHover={{ opacity: '100%', transform: 'translateX(0)' }}
-            justify={'flex-end'}
-            align={'center'}
-            flex={1}
+            _groupHover={{ color: 'pink.400' }}
+            fontWeight={500}
           >
-            <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
-          </Flex>
-        </Stack>
-      </a>
+            {label}
+          </Text>
+          <Text style={{ marginBottom: 0 }} fontSize={'sm'}>
+            {subLabel}
+          </Text>
+        </Box>
+        <Flex
+          transition={'all .3s ease'}
+          transform={'translateX(-10px)'}
+          opacity={0}
+          _groupHover={{ opacity: '100%', transform: 'translateX(0)' }}
+          justify={'flex-end'}
+          align={'center'}
+          flex={1}
+        >
+          <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
+        </Flex>
+      </Stack>
     </NextLink>
   )
 }
