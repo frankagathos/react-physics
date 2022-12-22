@@ -1,13 +1,14 @@
 import '../styles/globals.scss'
 import { ChakraProvider } from '@chakra-ui/react'
-import Layout from '../components/Layout'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import theme from '../theme/theme'
+import React from 'react'
+import Layout from '../layout/Layout'
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
-  const handleRouteChange = (url) => {
+  const handleRouteChange = (url: string) => {
     window.gtag('config', `${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`, {
       page_path: url,
     })

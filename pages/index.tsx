@@ -144,7 +144,7 @@ export default function BoxAnimation() {
         <Heading>Welcome to React Physics</Heading>
         <ChakraText>
           Your place for well maintained examples of 3D scenes built with React
-          three fiber.{' '}
+          three fiber.
         </ChakraText>
       </Container>
       <Canvas
