@@ -6,15 +6,9 @@ import { Environment, OrbitControls } from '@react-three/drei'
 import { useFBX } from '@react-three/drei'
 interface PageProps {}
 
-const Trex = () => {
+export const Trex = ({ ...props }) => {
   let fbx = useFBX('../trex.fbx')
-  return (
-    <primitive
-      object={fbx}
-      scale={0.1}
-      position={new THREE.Vector3(0, 0.5, 0)}
-    />
-  )
+  return <primitive {...props} object={fbx} castShadow receiveShadow />
 }
 
 const TRex: NextPage<PageProps> = () => {
@@ -34,7 +28,7 @@ const TRex: NextPage<PageProps> = () => {
       </mesh>
 
       <Suspense fallback={null}>
-        <Trex />
+        <Trex position={new THREE.Vector3(0, 0.5, 0)} scale={0.1} />
         <Environment preset="sunset" background />
       </Suspense>
     </Canvas>
