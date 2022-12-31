@@ -1,38 +1,36 @@
 import { useBox } from '@react-three/cannon'
 import usePersonControls from '../hooks/usePersonControls'
-import generateUuid from '../utils/generateUuid'
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
+import generateUuid from '../utils/generateUuid'
 
 export interface RectangularCuboidProps {
-  position: number[]
-  rotation?: number[]
-  controls?: boolean
-  type?: 'Static' | 'Dynamic' | 'Kinematic'
-  size?: any // [number,number,number]
-  onClick?: (mesh: THREE.Object3D | undefined) => void
-  uuid?: string
-  color?: string
+  position: [number, number, number]
+  rotation?: [number, number, number]
   isSelected?: boolean
+  type?: 'Static' | 'Dynamic' | 'Kinematic'
+  size?: [number, number, number]
+  onClick?: (mesh: THREE.Object3D | null) => void
+  customId?: string
+  color?: string
 }
 const RectangularCuboid = ({
   position,
   rotation = [0, 0, 0],
-  controls = false,
+  isSelected = false,
   type,
   size = [1, 1, 1],
   color = 'white',
-  uuid = generateUuid(),
+  customId = generateUuid(),
   onClick,
 }: RectangularCuboidProps) => {
   const [ref, api] = useBox(() => ({
-    mass: 1,
+    mass: 10,
     position,
     rotation,
-    isKinematic: true,
     args: size,
     type,
-    uuid,
+    userData: { customId },
   }))
 
   const SPEED = 5
@@ -40,7 +38,7 @@ const RectangularCuboid = ({
   const { forward, backward, left, right, jump, downward } = usePersonControls()
 
   useFrame(() => {
-    if (!controls || type === 'Static') return
+    if (!isSelected || type === 'Static') return
 
     let frontVector = new THREE.Vector3(0, 0, 0)
     let sideVector = new THREE.Vector3(0, 0, 0)
@@ -61,16 +59,15 @@ const RectangularCuboid = ({
 
   return (
     <mesh
-      onClick={() => onClick?.(ref.current)}
+      onClick={() => onClick?.(ref?.current)}
       ref={ref}
       castShadow
       receiveShadow
-      uuid={uuid}
     >
       <boxBufferGeometry args={size} attach="geometry" />
       <meshLambertMaterial
         attach="material"
-        color={controls ? 'blue' : color}
+        color={isSelected ? 'blue' : color}
         side={THREE.DoubleSide}
       />
     </mesh>
