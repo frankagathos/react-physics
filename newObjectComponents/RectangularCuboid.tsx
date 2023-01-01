@@ -60,6 +60,7 @@ const RectangularCuboid = ({
   return (
     <mesh
       onClick={() => onClick?.(ref?.current)}
+      // @ts-ignore
       ref={ref}
       castShadow
       receiveShadow
