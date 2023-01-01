@@ -19,6 +19,7 @@ extend({ Text })
 function Plane({ color, ...props }: any) {
   const [ref] = usePlane(() => ({ ...props }))
   return (
+    //@ts-ignore
     <mesh ref={ref} receiveShadow>
       <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
       <meshPhongMaterial attach="material" color={color} />
@@ -59,6 +60,7 @@ function Box({
 
   return (
     <mesh
+      //@ts-ignore
       ref={ref}
       castShadow
       receiveShadow

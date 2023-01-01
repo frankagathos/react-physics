@@ -30,6 +30,7 @@ const BillBoardWithImagePage: NextPage = () => {
       <Setup controls={true} cameraPosition={new THREE.Vector3(0, 0, -10)}>
         <Billboard
           position={[0, 4, 0]}
+          //@ts-ignore
           args={[5, 3]}
           material-color="white"
           follow={true}
@@ -44,6 +45,7 @@ const BillBoardWithImagePage: NextPage = () => {
 
         <Billboard
           position={[0, 0, 0]}
+          //@ts-ignore
           args={[5, 3]}
           material-color="white"
           follow={true}
@@ -58,6 +60,7 @@ const BillBoardWithImagePage: NextPage = () => {
 
         <Billboard
           position={[0, -4, 0]}
+          //@ts-ignore
           args={[5, 3]}
           material-color="white"
           follow={true}
@@ -72,6 +75,7 @@ const BillBoardWithImagePage: NextPage = () => {
 
         <Billboard
           position={[6, 0, 0]}
+          //@ts-ignore
           args={[5, 3]}
           material-color="white"
           follow={true}
@@ -86,6 +90,7 @@ const BillBoardWithImagePage: NextPage = () => {
 
         <Billboard
           position={[-6, 0, 0]}
+          //@ts-ignore
           args={[5, 3]}
           material-color="white"
           follow={true}

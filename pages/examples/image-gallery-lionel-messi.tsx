@@ -57,6 +57,7 @@ const MyBillBoard = ({
       lockX={lockX}
       lockY={lockY}
       lockZ={lockZ}
+      removeFromParent={undefined}
     >
       <Suspense fallback={'Loading...'}>
         <Mesh url={imageUrl} />

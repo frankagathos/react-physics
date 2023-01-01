@@ -31,6 +31,7 @@ function Text3d({ text }: { text: string }) {
   }
   return (
     <mesh>
+      {/* @ts-ignore */}
       <textGeometry attach="geometry" args={[text, textOptions]} />
       <meshStandardMaterial attach="material" color="hotpink" />
     </mesh>
@@ -76,6 +77,7 @@ const PremierLeagueTopScorers = () => {
                 <Billboard
                   key={i}
                   position={[-4, i + 2, 0]}
+                  // @ts-ignore
                   args={[50, 25]}
                   material-color="black"
                   follow={follow}

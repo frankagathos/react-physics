@@ -12,7 +12,7 @@ const PanoHotspot = ({ router }: { router: any }) => {
   const [canvasCreated, setCanvasCreated] = useState(false)
   const [canClick, setCanClick] = useState(false)
   const { camera } = useThree()
-  const self = useRef()
+  const self = useRef(null!)
 
   let canvas2d: CanvasRenderingContext2D | null
   const raycaster = new THREE.Raycaster()
@@ -38,7 +38,6 @@ const PanoHotspot = ({ router }: { router: any }) => {
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1
 
     raycaster.setFromCamera(mouse, camera)
-    // @ts-ignore
     const intersects = raycaster.intersectObjects([self.current])
 
     if (intersects.length > 0) {
