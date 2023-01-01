@@ -18,6 +18,7 @@ const Game: NextPage = () => {
       rotation: [-Math.PI / 2, 0, 0],
     }))
     return (
+      //@ts-ignore
       <mesh ref={ref}>
         <planeGeometry args={[150, 150, 1]} />
         <meshStandardMaterial color="white" side={THREE.DoubleSide} />
