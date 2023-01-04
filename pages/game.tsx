@@ -1,14 +1,17 @@
 import { OrbitControls } from '@react-three/drei'
-import { Canvas } from '@react-three/fiber'
+import { Canvas, useFrame } from '@react-three/fiber'
 import { NextPage } from 'next'
 import * as THREE from 'three'
 import { Physics, useBox } from '@react-three/cannon'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import RectangularCuboid, {
   RectangularCuboidProps,
 } from '../newObjectComponents/RectangularCuboid'
 import { button, useControls } from 'leva'
 import generateUuid from '../utils/generateUuid'
+import React from 'react'
+import useCursorRaycaster from '../hooks/useCursorRaycaster'
+import { Vector3 } from 'three'
 
 const Game: NextPage = () => {
   function Plane() {
@@ -74,6 +77,27 @@ const Game: NextPage = () => {
     },
   ])
 
+  const RollOverCube = () => {
+    const [ref] = useBox(() => ({
+      type: 'Static',
+      args: [1, 1, 1],
+    }))
+
+    const mesh = useRef<THREE.Mesh>(null!)
+    useCursorRaycaster(mesh)
+
+    return (
+      <mesh ref={mesh}>
+        <boxGeometry args={[1, 1, 1]} />
+        <meshStandardMaterial
+          map={new THREE.TextureLoader().load(
+            'https://threejs.org/examples/textures/square-outline-textured.png',
+          )}
+        />
+      </mesh>
+    )
+  }
+
   return (
     <>
       <Canvas
@@ -85,6 +109,7 @@ const Game: NextPage = () => {
       >
         <axesHelper position={new THREE.Vector3(0, 0, 0)} args={[5]} />
         <Physics gravity={gravity}>
+          <RollOverCube />
           {newRects?.map((rect, index) => (
             <RectangularCuboid
               key={index}
