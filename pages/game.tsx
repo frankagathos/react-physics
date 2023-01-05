@@ -11,7 +11,7 @@ import { button, useControls } from 'leva'
 import generateUuid from '../utils/generateUuid'
 import React from 'react'
 import useCursorRaycaster from '../hooks/useCursorRaycaster'
-import { Vector3 } from 'three'
+import useEventListener from '../hooks/useEventListener'
 
 const Game: NextPage = () => {
   function Plane() {
@@ -31,24 +31,22 @@ const Game: NextPage = () => {
 
   const { gravity } = useControls({
     gravity: { value: [0, -9.81, 0], step: 0.2 },
+    toggleAddMode: button(() => setAddObject((s) => !s)),
+    addCube: button(() => handleAddBox()),
   })
 
-  const handleAddBox = () => {
+  const handleAddBox = (position?: THREE.Vector3) => {
     setNewRects((prevRects) => [
       ...prevRects,
       {
         customId: generateUuid(),
-        position: [0, 5, 0],
+        position: position ? [position.x, position?.y, position.z] : [0, 5, 0],
         size: [1, 1, 1],
         type: 'Dynamic',
         color: 'green',
       },
     ])
   }
-
-  useControls({
-    addCube: button(handleAddBox),
-  })
 
   const [selectedObject, setSelectedObject] = useState<THREE.Object3D | null>(
     null,
@@ -59,7 +57,7 @@ const Game: NextPage = () => {
       position: [0, 2, 0],
       size: [2, 1, 1],
       type: 'Dynamic',
-      color: 'red',
+      color: 'yellow',
     },
     {
       customId: '2',
@@ -77,14 +75,17 @@ const Game: NextPage = () => {
     },
   ])
 
-  const RollOverCube = () => {
+  const [addObject, setAddObject] = useState<boolean>(true)
+
+  const RollOverCube = ({ onClick }: any) => {
     const [ref] = useBox(() => ({
-      type: 'Static',
+      type: 'Kinematic',
       args: [1, 1, 1],
     }))
 
     const mesh = useRef<THREE.Mesh>(null!)
-    useCursorRaycaster(mesh)
+    const position = useCursorRaycaster(mesh)
+    useEventListener('pointerdown', () => onClick(position.current))
 
     return (
       <mesh ref={mesh}>
@@ -109,7 +110,9 @@ const Game: NextPage = () => {
       >
         <axesHelper position={new THREE.Vector3(0, 0, 0)} args={[5]} />
         <Physics gravity={gravity}>
-          <RollOverCube />
+          {addObject && (
+            <RollOverCube onClick={(pos: any) => handleAddBox(pos)} />
+          )}
           {newRects?.map((rect, index) => (
             <RectangularCuboid
               key={index}
