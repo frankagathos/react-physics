@@ -26,15 +26,8 @@ module.exports = {
     })
     // For bin file
     config.module.rules.push({
-      test: /\.(bin)$/,
-      use: {
-        loader: 'file-loader',
-        // options: {
-        //   publicPath: "/_next/static/images",
-        //   outputPath: "static/images/",
-        //   name: '[name].[ext]' // keep the original name
-        // }
-      },
+      test: /\.dxf$/,
+      loader: 'raw-loader',
     })
     return config
   },
