@@ -12,6 +12,7 @@ export interface RectangularCuboidProps {
   size?: [number, number, number]
   onClick?: (mesh: THREE.Object3D | null) => void
   customId?: string
+  customType?: 'cuboid' | 'model' // THIS IS NOT USED JUST LAZY TO ADD THE TYPE BELOTFT
   color?: string
 }
 const RectangularCuboid = ({
