@@ -66,7 +66,7 @@ const RectangularCuboid = ({
       castShadow
       receiveShadow
     >
-      <boxBufferGeometry args={size} attach="geometry" />
+      <boxGeometry args={size} attach="geometry" />
       <meshLambertMaterial
         attach="material"
         color={isSelected ? 'blue' : color}

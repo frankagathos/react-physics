@@ -9,10 +9,12 @@ import Layout from '../layout/Layout'
 function MyApp({ Component, pageProps }: any) {
   const router = useRouter()
   const handleRouteChange = (url: string) => {
-    //@ts-ignore
-    window.gtag('config', `${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`, {
-      page_path: url,
-    })
+    if (typeof window !== 'undefined') {
+      //@ts-ignore
+      window?.gtag?.('config', `${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`, {
+        page_path: url,
+      })
+    }
   }
 
   useEffect(() => {

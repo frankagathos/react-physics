@@ -21,7 +21,7 @@ function Plane({ color, ...props }) {
   return (
     // @ts-ignore
     <mesh ref={ref} receiveShadow>
-      <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
+      <planeGeometry attach="geometry" args={[1000, 1000]} />
       <meshPhongMaterial attach="material" color={color} />
     </mesh>
   )
@@ -69,7 +69,7 @@ function Box({
       onPointerOver={(event) => setHover(true)}
       onPointerOut={(event) => setHover(false)}
     >
-      <boxBufferGeometry attach="geometry" args={[4, 4, 4]} />
+      <boxGeometry attach="geometry" args={[4, 4, 4]} />
       <meshLambertMaterial
         attach="material"
         color="white"

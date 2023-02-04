@@ -21,7 +21,7 @@ const PlainGeometry: NextPage = () => {
           maxPolarAngle={Math.PI / 2}
         />
         <mesh>
-          <planeBufferGeometry attach="geometry" args={[1, 1]} />
+          <planeGeometry attach="geometry" args={[1, 1]} />
           <meshPhongMaterial attach="material" color="green" />
         </mesh>
       </Canvas>
