@@ -1,12 +1,10 @@
 import { NextPage } from 'next'
-import * as THREE from 'three'
-// import DxfParser from 'dxf-parser'
+//@ts-ignore
 import * as ThreeDxf from 'three-dxf'
 import DxfParser from 'dxf-parser'
+//@ts-ignore
 import dxfSample from '../dxfFiles/sample.dxf'
-// import dxfErm from '../dxfFiles/ermones.dxf'
 import { useEffect } from 'react'
-import { Button } from '@chakra-ui/react'
 
 const DxfViewer: NextPage = () => {
   useEffect(() => {
@@ -22,8 +20,6 @@ const DxfViewer: NextPage = () => {
     )
   }, [])
   // }
-
-  const handleDxfChange = () => {}
 
   return <div style={{ width: '100%', height: '100%' }} id="cad-view"></div>
 }
