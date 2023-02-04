@@ -7,12 +7,10 @@ import niceColors from 'nice-color-palettes'
 // @ts-ignore
 import { Text } from 'troika-three-text'
 import fonts from '../fonts/fonts'
-import { OrbitControls } from '@react-three/drei'
 import { useRouter } from 'next/router'
 import { ThreeEvent } from '@react-three/fiber/dist/declarations/src/core/events'
 import styles from '../components/setup.module.scss'
 import Head from 'next/head'
-import { Container, Heading, Text as ChakraText } from '@chakra-ui/react'
 extend({ Text })
 
 // @ts-ignore
@@ -142,25 +140,11 @@ export default function BoxAnimation() {
           content="React three fiber maintained examples. Learn how to add Three.js scenes in React.js by examples."
         />
       </Head>
-      <Container>
-        <Heading>Welcome to React Physics</Heading>
-        <ChakraText>
-          Your place for well maintained examples of 3D scenes built with React
-          three fiber.
-        </ChakraText>
-      </Container>
       <Canvas
         className={styles.canvas}
         gl={{ alpha: false }}
         camera={{ position: [0, -12, 16] }}
       >
-        <OrbitControls
-          zoomSpeed={0.8}
-          enableZoom={true}
-          enablePan={true}
-          enableDamping
-          dampingFactor={0.1}
-        />
         <hemisphereLight intensity={0.35} />
         <spotLight
           position={[30, 0, 45]}
