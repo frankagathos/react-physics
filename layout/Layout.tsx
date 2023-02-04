@@ -1,10 +1,10 @@
 import React from 'react'
 import Head from 'next/head'
 import styles from './Layout.module.scss'
-// import CookieConsent from 'react-cookie-consent'
 import { DefaultSeo } from 'next-seo'
 import WithSubnavigation from '../components/Header'
 import Footer from '../components/Footer'
+import Script from 'next/script'
 
 const Layout: React.FC = ({ children }) => {
   return (
@@ -49,11 +49,13 @@ const Layout: React.FC = ({ children }) => {
           content="React physics, 3D Components built with three.js fiber in next.js. Data fetching examples and more."
         />
         {/* Global Site Tag (gtag.js) - Google Analytics */}
-        <script
+
+        <Script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
         />
-        <script
+
+        <Script
           dangerouslySetInnerHTML={{
             __html: `
             window.dataLayer = window.dataLayer || [];
@@ -71,30 +73,6 @@ const Layout: React.FC = ({ children }) => {
 
       <main className={styles.main}>{children}</main>
 
-      {/* <CookieConsent
-        style={{
-          background: '#444',
-          color: 'white',
-          position: 'fixed',
-          bottom: 0,
-          left: 0,
-          height: 'fit-content',
-        }}
-        buttonStyle={{
-          fontWeight: 'bold',
-          border: '1px solid white',
-          padding: '5px 30px',
-          color: 'white',
-        }}
-        disableStyles={true}
-        location={'top'}
-        buttonClasses="btn btn-primary"
-        containerClasses="alert"
-        contentClasses="text-capitalize"
-        overlay
-      >
-        This website uses cookies to enhance the user experience.
-      </CookieConsent> */}
       <Footer />
     </>
   )
