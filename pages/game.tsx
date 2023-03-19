@@ -2,7 +2,6 @@ import { OrbitControls, useFBX } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { NextPage } from 'next'
 import * as THREE from 'three'
-import { Physics, useBox } from '@react-three/cannon'
 import { useRef, useState } from 'react'
 import RectangularCuboid from '../newObjectComponents/RectangularCuboid'
 import { button, useControls } from 'leva'
@@ -15,14 +14,8 @@ import Model from '../newObjectComponents/Model'
 
 const Game: NextPage = () => {
   function Plane() {
-    const [ref] = useBox(() => ({
-      type: 'Static',
-      args: [150, 150, 0.5],
-      rotation: [-Math.PI / 2, 0, 0],
-    }))
     return (
-      //@ts-ignore
-      <mesh ref={ref}>
+      <mesh rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[150, 150, 1]} />
         <meshStandardMaterial color="white" side={THREE.DoubleSide} />
       </mesh>
@@ -30,11 +23,8 @@ const Game: NextPage = () => {
   }
 
   // CONTROLS
-  const { gravity } = useControls({
-    gravity: { value: [0, -9.81, 0], step: 0.2 },
-    // toggleAddMode: button(() => setAddObject((s) => !s)),
-    // addCube: button(() => handleAddObject()),
-    addModel: button(() =>
+  useControls({
+    add_Model: button(() =>
       setObjToAdd({
         customId: generateUuid(),
         customType: 'model',
@@ -43,7 +33,7 @@ const Game: NextPage = () => {
         scale: 0.1,
       }),
     ),
-    addBox: button(() =>
+    add_Box: button(() =>
       setObjToAdd({
         customId: generateUuid(),
         customType: 'cuboid',
@@ -113,10 +103,6 @@ const Game: NextPage = () => {
     object: CustomObject
     onClick: (object: CustomObject) => void
   }) => {
-    const [ref] = useBox(() => ({
-      type: 'Kinematic',
-      args: [1, 1, 1],
-    }))
     const mesh = useRef<THREE.Mesh>(null!)
     const position = useCursorRaycaster(mesh)
 
@@ -136,7 +122,7 @@ const Game: NextPage = () => {
     if (object.customType === 'model') {
       return (
         <primitive
-          ref={mesh}
+          // ref={mesh}
           //@ts-ignore
           object={fbx}
           scale={0.1}
@@ -164,40 +150,38 @@ const Game: NextPage = () => {
         }}
       >
         <axesHelper position={new THREE.Vector3(0, 0, 0)} args={[5]} />
-        <Physics gravity={gravity}>
-          {objToAdd && (
-            <AddObject
-              object={objToAdd}
-              onClick={(objToAddWithPos) => handleAddObject(objToAddWithPos)}
-            />
-          )}
-          {renderObjs?.map((object, index) => {
-            switch (object.customType) {
-              case 'cuboid':
-                const cuboid = object as Cuboid
-                return (
-                  <RectangularCuboid
-                    key={index}
-                    onClick={(mesh) => setSelectedObject(mesh)}
-                    position={cuboid?.position || [0, 0, 0]}
-                    size={cuboid.size}
-                    isSelected={
-                      selectedObject?.userData.customId === cuboid.customId
-                    }
-                    type={cuboid.type}
-                    color={cuboid.color}
-                    customId={cuboid.customId}
-                  />
-                )
-              case 'model':
-                const model = object as Model3d
-                return <Model key={index} url={model.modelUrl} />
-              default:
-                return <></>
-            }
-          })}
-          <Plane />
-        </Physics>
+        {objToAdd && (
+          <AddObject
+            object={objToAdd}
+            onClick={(objToAddWithPos) => handleAddObject(objToAddWithPos)}
+          />
+        )}
+        {renderObjs?.map((object, index) => {
+          switch (object.customType) {
+            case 'cuboid':
+              const cuboid = object as Cuboid
+              return (
+                <RectangularCuboid
+                  key={index}
+                  onClick={(mesh) => setSelectedObject(mesh)}
+                  position={cuboid?.position || [0, 0, 0]}
+                  size={cuboid.size}
+                  isSelected={
+                    selectedObject?.userData.customId === cuboid.customId
+                  }
+                  // type={cuboid.type}
+                  color={cuboid.color}
+                  customId={cuboid.customId}
+                />
+              )
+            case 'model':
+              const model = object as Model3d
+              return <Model key={index} url={model.modelUrl} />
+            default:
+              return <></>
+          }
+        })}
+        <Plane />
         <OrbitControls />
         <ambientLight intensity={0.8} />
       </Canvas>
