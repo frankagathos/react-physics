@@ -3,7 +3,6 @@ import Head from 'next/head'
 import React, { useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
-import { Button } from '@chakra-ui/react'
 
 // Create the sphere mesh
 function Sphere(props: JSX.IntrinsicElements['mesh']) {
@@ -35,16 +34,12 @@ export default function Spheres() {
         <meta name="description" content="spheres with three.js" />
       </Head>
 
-      <Button
-        colorScheme="blue"
-        zIndex={1}
-        right={25}
-        top={150}
-        position={'absolute'}
+      <button
+        style={{ zIndex: 1, right: 25, top: 150, position: 'absolute' }}
         onClick={() => setSpherePositions(getSpheresPositions())}
       >
         Change positions
-      </Button>
+      </button>
       <Canvas>
         <OrbitControls
           zoomSpeed={0.8}

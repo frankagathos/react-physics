@@ -1,10 +1,3 @@
-import {
-  Heading,
-  Text,
-  ListItem,
-  UnorderedList,
-  Container,
-} from '@chakra-ui/react'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -23,24 +16,24 @@ const FrontEndFrameworksStars: NextPage<Props> = ({ uiFrameworks }: Props) => {
           content="This page contains a list of night skies pages created with github stars fetched from github API and next.js dynamic routing using getStaticProps."
         />
       </Head>
-      <Container>
-        <Heading>Frontend frameworks stars</Heading>
-        <Text>
+      <div>
+        <h1>Frontend frameworks stars</h1>
+        <p>
           Night skies pages created with github stars fetched from github API
           and next.js dynamic routing using getStaticProps.
-        </Text>
-        <UnorderedList>
+        </p>
+        <ul>
           {uiFrameworks.map((item, index) => (
-            <ListItem style={{ textTransform: 'capitalize' }} key={index}>
+            <li style={{ textTransform: 'capitalize' }} key={index}>
               <Link
                 href={`frontend-frameworks-stars/${item.name}?stars=${item.stargazers_count}`}
               >
                 {item.name}
               </Link>
-            </ListItem>
+            </li>
           ))}
-        </UnorderedList>
-      </Container>
+        </ul>
+      </div>
     </>
   )
 }

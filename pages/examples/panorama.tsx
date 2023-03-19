@@ -1,4 +1,3 @@
-import { Button } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import React, { useState } from 'react'
 import SimplePanorama from '../../components/SimplePano'
@@ -8,16 +7,12 @@ const Panorama: NextPage = () => {
 
   return (
     <>
-      <Button
-        colorScheme="blue"
-        zIndex={1}
-        right={25}
-        top={150}
-        position={'absolute'}
+      <button
+        style={{ zIndex: 1, right: 25, top: 150, position: 'absolute' }}
         onClick={() => setRotate(!rotate)}
       >
         Rotate toggle
-      </Button>
+      </button>
       <SimplePanorama autoRotate={rotate} />
     </>
   )

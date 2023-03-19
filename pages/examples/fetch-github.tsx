@@ -1,6 +1,5 @@
 import { NextPage, NextPageContext } from 'next'
 import React from 'react'
-import { Heading, Text, Container } from '@chakra-ui/react'
 import Text3d from '../../components/Text3d'
 
 interface Props {
@@ -10,12 +9,12 @@ interface Props {
 
 const FetchGithub: NextPage<Props> = ({ name, stars }) => {
   return (
-    <Container>
-      <Heading>Fetch data from github api</Heading>
-      <Text>Example fetching data with SSR</Text>
+    <div>
+      <h1>Fetch data from github api</h1>
+      <p>Example fetching data with SSR</p>
       <br></br>
       <Text3d fontSize={15} textCopy={`${name}, has ${stars}.`} />
-    </Container>
+    </div>
   )
 }
 

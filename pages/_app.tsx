@@ -1,7 +1,6 @@
 import '../styles/globals.scss'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import theme from '../theme/theme'
 import React from 'react'
 import Layout from '../layout/Layout'
 
@@ -24,11 +23,9 @@ function MyApp({ Component, pageProps }: any) {
   }, [router.events])
 
   return (
-    // <ChakraProvider theme={theme}>
     <Layout>
       <Component {...pageProps} />
     </Layout>
-    // </ChakraProvider>
   )
 }
 export default MyApp
