@@ -9,10 +9,9 @@
     "start": "next start"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^1.0.15",
-    "@chakra-ui/react": "^2.4.9",
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.13",
     "@react-spring/core": "^9.2.4",
     "@react-spring/three": "^9.2.4",
     "@react-three/cannon": "^6.5.0",

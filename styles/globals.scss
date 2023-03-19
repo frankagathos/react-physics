@@ -1,5 +1,6 @@
 html,
 body {
+  color: white;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -7,14 +8,8 @@ body {
 }
 
 a {
+  color: white;
   text-decoration: none;
-}
-
-main {
-  a {
-    // text-decoration: none;
-    // color: #045206 !important;
-  }
 }
 
 * {

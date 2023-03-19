@@ -1,5 +1,4 @@
 import '../styles/globals.scss'
-import { ChakraProvider } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import theme from '../theme/theme'
@@ -23,12 +22,13 @@ function MyApp({ Component, pageProps }: any) {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
   }, [router.events])
+
   return (
-    <ChakraProvider theme={theme}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ChakraProvider>
+    // <ChakraProvider theme={theme}>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+    // </ChakraProvider>
   )
 }
 export default MyApp

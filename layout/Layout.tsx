@@ -2,14 +2,13 @@ import React from 'react'
 import Head from 'next/head'
 import styles from './Layout.module.scss'
 import { DefaultSeo } from 'next-seo'
-import WithSubnavigation from '../components/Header'
+// import WithSubnavigation from '../components/Header'
 import Footer from '../components/Footer'
 import Script from 'next/script'
 
 const Layout: React.FC = ({ children }) => {
   return (
     <>
-      {/* this might need updating */}
       <DefaultSeo
         openGraph={{
           type: 'website',
@@ -69,7 +68,7 @@ const Layout: React.FC = ({ children }) => {
         />
       </Head>
 
-      <WithSubnavigation />
+      {/* <WithSubnavigation /> */}
 
       <main className={styles.main}>{children}</main>
 
