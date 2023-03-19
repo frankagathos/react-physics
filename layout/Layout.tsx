@@ -1,10 +1,10 @@
 import React from 'react'
 import Head from 'next/head'
-import styles from './Layout.module.scss'
 import { DefaultSeo } from 'next-seo'
-// import WithSubnavigation from '../components/Header'
 import Footer from '../components/Footer'
 import Script from 'next/script'
+import {  Paper, ThemeProvider } from '@mui/material'
+import theme from '../styles/theme'
 
 const Layout: React.FC = ({ children }) => {
   return (
@@ -68,11 +68,12 @@ const Layout: React.FC = ({ children }) => {
         />
       </Head>
 
-      {/* <WithSubnavigation /> */}
-
-      <main className={styles.main}>{children}</main>
-
-      <Footer />
+      <ThemeProvider theme={theme}>
+        <Paper component="main" padding={1}>
+          {children}
+        </Paper>
+        <Footer />
+      </ThemeProvider>
     </>
   )
 }
