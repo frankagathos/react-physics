@@ -1,9 +1,9 @@
 import React from 'react'
 import Head from 'next/head'
 import { DefaultSeo } from 'next-seo'
-import Footer from '../components/Footer'
+import Footer from './Footer'
 import Script from 'next/script'
-import {  Paper, ThemeProvider } from '@mui/material'
+import { Paper, ThemeProvider } from '@mui/material'
 import theme from '../styles/theme'
 
 const Layout: React.FC = ({ children }) => {

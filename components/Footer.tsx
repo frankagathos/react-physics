@@ -1,17 +1,33 @@
 import React from 'react'
 import styles from './Footer.module.scss'
+import { Typography } from '@mui/material'
 
-const Footer = () => {
+function Copyright(props: any) {
   return (
-    <footer className={styles.footer}>
-      <span>Made by</span>{' '}
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {'Copyright © '}
       <a
         href="https://frankagathos.com"
         target="_blank"
         rel="noopener noreferrer"
       >
         <strong>&nbsp;Frank Agathos</strong>
-      </a>
+      </a>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  )
+}
+
+const Footer = () => {
+  return (
+    <footer className={styles.footer}>
+      <Copyright />
     </footer>
   )
 }

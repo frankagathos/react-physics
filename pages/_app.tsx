@@ -2,7 +2,7 @@ import '../styles/globals.scss'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import React from 'react'
-import Layout from '../layout/Layout'
+import Layout from '../components/Layout'
 
 function MyApp({ Component, pageProps }: any) {
   const router = useRouter()
