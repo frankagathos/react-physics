@@ -8,15 +8,22 @@ export default async function handler(
   const client = await clientPromise
   const db = client.db('react-physics')
 
+  if (req.method !== 'POST') {
+    res.status(405).send({ message: 'Only POST requests allowed' })
+    return
+  }
+
   switch (req.method) {
     case 'POST':
-      let bodyObject = JSON.parse(req.body)
-      let myPost = await db.collection('posts').insertOne(bodyObject)
-      res.json(myPost.ops[0])
-      break
-    case 'GET':
-      const allPosts = await db.collection('posts').find({}).toArray()
-      res.json({ status: 200, data: allPosts })
+      const collection = await db.collection('users')
+      const user = await collection.findOne(req.body)
+
+      console.log('USER FOUND', user)
+
+      if (user) {
+        res.status(200).json(user)
+      }
+
       break
   }
 }
