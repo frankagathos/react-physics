@@ -13,3 +13,7 @@ Bug in game page , when adding models
 # TODOS :
 
 1. typescript errors during builds 2. Linting
+
+# Latest
+
+I've connected to a mongodb database
