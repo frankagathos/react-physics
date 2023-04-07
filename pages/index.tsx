@@ -98,7 +98,7 @@ function Box({
         rotation={[Math.PI / 2, 0, 0, 'XYZ']}
         {...opts}
         // @ts-ignore
-        text={'React'}
+        text={'Click'}
         // @ts-ignore
         font={fonts[opts.font]}
         anchorX="center"
@@ -116,7 +116,7 @@ function Box({
         rotation={[Math.PI, 0, 0, 'XYZ']}
         {...opts}
         // @ts-ignore
-        text={'Physics'}
+        text={'Me'}
         // @ts-ignore
         font={fonts[opts.font]}
         anchorX="center"

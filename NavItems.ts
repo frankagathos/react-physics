@@ -17,6 +17,11 @@ export const NAV_ITEMS: Array<NavItem> = [
         href: `/earth`,
       },
       {
+        label: 'Flex grid',
+        subLabel: '3d components with flex',
+        href: `/flex-grid`,
+      },
+      {
         label: 'Animated cube with text and link',
         subLabel: 'clickable animated cube',
         href: `/${examples}/box-animation`,

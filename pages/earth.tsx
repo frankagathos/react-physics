@@ -4,8 +4,12 @@ import { OrbitControls } from '@react-three/drei'
 import { NextPage } from 'next'
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 
-const Earth: NextPage = () => {
-  const Earth = () => {
+export const EarthGroup = ({
+  renderGalaxy = true,
+}: {
+  renderGalaxy?: boolean
+}) => {
+  const EarthSphere = () => {
     const mesh = useRef<THREE.Mesh>(null)
     useFrame((state, delta) => {
       if (!mesh.current) return
@@ -24,7 +28,6 @@ const Earth: NextPage = () => {
       </mesh>
     )
   }
-
   const Clouds = () => {
     const mesh = useRef<THREE.Mesh>(null)
     useFrame((state, delta) => {
@@ -39,7 +42,6 @@ const Earth: NextPage = () => {
       </mesh>
     )
   }
-
   const Galaxy = () => {
     const mesh = useRef<THREE.Mesh>(null)
     useFrame((state, delta) => {
@@ -59,13 +61,21 @@ const Earth: NextPage = () => {
       </mesh>
     )
   }
+  return (
+    <group position={[0, 0, 0]}>
+      <EarthSphere />
+      <Clouds />
+      {renderGalaxy && <Galaxy />}
+    </group>
+  )
+}
 
+const EarthPage: NextPage = () => {
   const [aspect, setAspect] = useState<number>(1)
 
   useEffect(() => {
     setAspect(window.innerWidth / window.innerHeight)
   }, [])
-
   return (
     <div style={{ width: '100%', height: '100vh', background: 'black' }}>
       <Canvas
@@ -81,11 +91,9 @@ const Earth: NextPage = () => {
         <OrbitControls />
         <ambientLight intensity={0.8} />
         <pointLight intensity={1} position={[0, 6, 0]} />
-        <Earth />
-        <Clouds />
-        <Galaxy />
+        <EarthGroup />
       </Canvas>
     </div>
   )
 }
-export default Earth
+export default EarthPage

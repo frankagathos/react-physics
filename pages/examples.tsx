@@ -16,7 +16,7 @@ const Examples: NextPage = () => {
         />
       </Head>
       <Box padding={2}>
-        <Typography variant="h2">Examples</Typography>
+        {/* <Typography variant="h2">Examples</Typography> */}
 
         <List>
           {NAV_ITEMS[0].children &&
