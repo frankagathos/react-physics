@@ -12,7 +12,12 @@ export const NAV_ITEMS: Array<NavItem> = [
     label: `${examples}`,
     children: [
       {
-        label: 'Intro animation cube',
+        label: 'Earth',
+        subLabel: 'Earth Sphere with clouds and stars',
+        href: `/earth`,
+      },
+      {
+        label: 'Animated cube with text and link',
         subLabel: 'clickable animated cube',
         href: `/${examples}/box-animation`,
       },

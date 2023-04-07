@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { DefaultSeo } from 'next-seo'
 import Footer from './Footer'
 import Script from 'next/script'
-import { Paper, ThemeProvider } from '@mui/material'
+import { ThemeProvider } from '@mui/material'
 import theme from '../styles/theme'
 
 const Layout: React.FC = ({ children }) => {
@@ -69,9 +69,7 @@ const Layout: React.FC = ({ children }) => {
       </Head>
 
       <ThemeProvider theme={theme}>
-        <Paper component="main" padding={1}>
-          {children}
-        </Paper>
+        <main style={{ minHeight: '100vh' }}>{children}</main>
         <Footer />
       </ThemeProvider>
     </>
