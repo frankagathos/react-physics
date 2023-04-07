@@ -1,6 +1,6 @@
 import { NextPage, NextPageContext } from 'next'
 import React from 'react'
-import Text3d from '../../components/Text3d'
+import Text3d from '../../components3D/Text3d'
 
 interface Props {
   name: string

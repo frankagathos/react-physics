@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef, Suspense } from 'react'
 import { useThree, useLoader, Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { NextPage } from 'next'
-import styles from '../../components/simplePano.module.scss'
+import styles from '../../components3D/simplePano.module.scss'
 import { useRouter } from 'next/router'
 
 interface Props {}

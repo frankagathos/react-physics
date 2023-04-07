@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 import { Cloud } from '@react-three/drei'
-import { Setup } from '../../components/Setup'
+import { Setup } from '../../components3D/Setup'
 import { Vector3, DoubleSide } from 'three'
 import fonts from '../../fonts/fonts'
 import { extend } from '@react-three/fiber'

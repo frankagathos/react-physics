@@ -7,12 +7,6 @@ import { Text } from 'troika-three-text'
 import fonts from '../fonts/fonts'
 import { Vector3, DoubleSide } from 'three'
 
-/**
- * Stars scene
- *
- *
- */
-
 const StarsScene = ({
   count,
   textCopy,
@@ -32,7 +26,7 @@ const StarsScene = ({
     textAlign: 'center',
   }
   return (
-    <Setup controls={true} cameraPosition={new Vector3(0, 0, 10)}>
+    <Setup controls={true} cameraPosition={new Vector3(0, 0, 10)} >
       <Suspense fallback={null}>
         <Stars
           radius={100}

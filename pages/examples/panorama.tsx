@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 import React, { useState } from 'react'
-import SimplePanorama from '../../components/SimplePano'
+import SimplePanorama from '../../components3D/SimplePano'
 
 const Panorama: NextPage = () => {
   const [rotate, setRotate] = useState<boolean>(true)

@@ -13,7 +13,7 @@ import {
   DomEvent,
   ThreeEvent,
 } from '@react-three/fiber/dist/declarations/src/core/events'
-import styles from '../../components/setup.module.scss'
+import styles from '../../components3D/setup.module.scss'
 extend({ Text })
 
 function Plane({ color, ...props }: any) {

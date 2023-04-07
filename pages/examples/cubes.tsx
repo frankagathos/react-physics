@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import { Canvas } from '@react-three/fiber'
 import Head from 'next/head'
-import Box from '../../components/objects/box'
+import Box from '../../components3D/Box'
 
 const Cubes: NextPage = () => {
   return (

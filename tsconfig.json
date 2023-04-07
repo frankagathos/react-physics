@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/Explosion.txt"
+    "components2D/Explosion.txt"
   ],
   "exclude": [
     "node_modules"
