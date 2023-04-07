@@ -1,4 +1,8 @@
 module.exports = {
+  //ENABLE Experimental import URL IMPORTS
+  experimental: {
+    urlImports: ['https://cdn.skypack.dev'],
+  },
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if
