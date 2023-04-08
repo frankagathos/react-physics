@@ -1,17 +1,12 @@
 import { NextPage } from 'next'
-import React, { Suspense } from 'react'
-import { Canvas } from '@react-three/fiber'
+import React, { Suspense, useEffect, useRef } from 'react'
+import { Canvas, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { Environment, OrbitControls } from '@react-three/drei'
-import { useFBX } from '@react-three/drei'
+import { TRexModel } from '../../components3D/TRex'
 interface PageProps {}
 
-export const Trex = ({ ...props }) => {
-  let fbx = useFBX('../trex.fbx')
-  return <primitive {...props} object={fbx} castShadow receiveShadow />
-}
-
-const TRex: NextPage<PageProps> = () => {
+const TRexPage: NextPage<PageProps> = () => {
   return (
     <Canvas
       style={{ minHeight: '100vh' }}
@@ -28,11 +23,11 @@ const TRex: NextPage<PageProps> = () => {
       </mesh>
 
       <Suspense fallback={null}>
-        <Trex position={new THREE.Vector3(0, 0.5, 0)} scale={0.1} />
+        <TRexModel scale={0.3} />
         <Environment preset="sunset" background />
       </Suspense>
     </Canvas>
   )
 }
 
-export default TRex
+export default TRexPage
