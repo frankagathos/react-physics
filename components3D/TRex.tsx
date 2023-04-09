@@ -4,48 +4,44 @@ Command: npx gltfjsx@6.1.4 tRex.glb --transform
 */
 
 import React, { useRef, useEffect } from 'react'
+import * as THREE from 'three'
 import { useGLTF, useAnimations } from '@react-three/drei'
+import { useSphere } from '@react-three/cannon'
 import usePersonControls from '../hooks/usePersonControls'
 import { useFrame } from '@react-three/fiber'
 
 export function TRexModel({ run, ...restProps }: any) {
   const { nodes, materials, animations } = useGLTF('../tRex-transformed.glb')
-  const ref = useRef<any>(null)
-  const { actions } = useAnimations(animations, ref)
-  const movement = usePersonControls()
+  const modelRef = useRef<any>(null)
+  const [sphereRef, api] = useSphere(() => ({
+    mass: 1000,
+    position: [0, 0.5, 0],
+    type: 'Dynamic',
+  }))
 
-  // function fadeToAction(name: any, duration: any) {
-  //   const previousAction = activeAction
-  //   const activeAction = actions[name]
+  const SPEED = 5
 
-  //   if (previousAction !== activeAction) {
-  //     previousAction.fadeOut(duration)
-  //   }
-
-  //   activeAction
-  //     .reset()
-  //     .setEffectiveTimeScale(1)
-  //     .setEffectiveWeight(1)
-  //     .fadeIn(duration)
-  //     .play()
-  // }
+  const { actions } = useAnimations(animations, modelRef)
+  const { forward, backward, right, left } = usePersonControls()
 
   useFrame(() => {
-    if (ref.current && actions && actions.idle && actions.run) {
-      if (movement.forward) {
-        ref.current.position.x += 0.01
-        actions.idle.fadeOut(1)
-        actions.run.fadeIn(1)
+    if (actions && actions.idle && actions.run) {
+      if (forward) {
+        actions.idle.stop()
+        actions.run.play()
       } else {
-        actions.run.fadeOut(1)
-        actions.idle.fadeIn(1)
+        actions.run.stop()
+        actions.idle.play()
+        // actions.run.fadeOut(1)
+        // actions.idle.fadeIn(1)
       }
       // if (movement.backward) {
       //   actions.run.crossFadeTo(actions.idle, 50, true)
       //   ref.current.position.x -= 0.01
       // }
       // if (movement.right) {
-      //   ref.current.rotation.y = Math.PI / 2
+      //   console.log('TEST')
+      //   ref.current.rotation.y += Math.PI / 180
       // }
       // if (Object.values(movement).every((m) => m === false)) {
       //   console.log('ACTIONS', actions)
@@ -53,18 +49,36 @@ export function TRexModel({ run, ...restProps }: any) {
       //   actions.run.crossFadeTo(actions.idle, 0.5, false)
       // }
     }
+
+    // Calculating front/side movement ...
+    let frontVector = new THREE.Vector3(0, 0, 0)
+    let sideVector = new THREE.Vector3(0, 0, 0)
+    let direction = new THREE.Vector3(0, 0, 0)
+
+    frontVector.set(0, 0, Number(forward) - Number(backward))
+    sideVector.set(Number(right) - Number(left), 0, 0)
+    direction
+      .subVectors(frontVector, sideVector)
+      .normalize()
+      .multiplyScalar(SPEED)
+
+    api.velocity.set(direction.x, 0, direction.z)
+
+    if (sphereRef.current) {
+      sphereRef.current.getWorldPosition(modelRef.current.position)
+    }
   })
 
-  useEffect(() => {
-    //Set init position and rotation
-    if (ref.current) {
-      ref.current.rotation.y = Math.PI / 2
-      ref.current.position.y = 0.5
-    }
-  }, [])
+  // useEffect(() => {
+  //   //Set init position and rotation
+  //   if (modelRef.current) {
+  //     modelRef.current.rotation.y = Math.PI / 2
+  //     modelRef.current.position.y = 0.5
+  //   }
+  // }, [])
 
   return (
-    <group ref={ref} {...restProps} dispose={null}>
+    <group ref={modelRef} {...restProps} dispose={null}>
       <group>
         <group name="RootNode0" scale={0.01}>
           <group name="geo1">
