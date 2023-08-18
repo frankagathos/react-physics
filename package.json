@@ -16,7 +16,7 @@
     "@react-spring/core": "^9.2.4",
     "@react-spring/three": "^9.2.4",
     "@react-three/cannon": "^6.5.0",
-    "@react-three/drei": "^9.48.6",
+    "@react-three/drei": "^9.80.3",
     "@react-three/fiber": "^8.9.2",
     "@react-three/flex": "^1.0.1",
     "@types/three": "^0.128.0",
