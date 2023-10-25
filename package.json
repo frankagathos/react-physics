@@ -28,7 +28,7 @@
     "framer-motion": "^6.5.1",
     "leva": "^0.9.34",
     "mongodb": "^3.7.3",
-    "next": "^13.0.7",
+    "next": "^13.5.0",
     "next-seo": "^4.26.0",
     "next-sitemap": "^1.6.140",
     "nice-color-palettes": "^3.0.0",
