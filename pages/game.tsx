@@ -1,4 +1,4 @@
-import { OrbitControls, useFBX } from '@react-three/drei'
+import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { NextPage } from 'next'
 import * as THREE from 'three'
@@ -10,30 +10,58 @@ import React from 'react'
 import useCursorRaycaster from '../hooks/useCursorRaycaster'
 import useEventListener from '../hooks/useEventListener'
 import { Cuboid, CustomObject, CustomObjects, Model3d } from '../types'
-import Model from '../newObjectComponents/Model'
+
+function Plane() {
+  return (
+    <mesh rotation={[-Math.PI / 2, 0, 0]}>
+      <planeGeometry args={[150, 150, 1]} />
+      <meshStandardMaterial color="white" side={THREE.DoubleSide} />
+    </mesh>
+  )
+}
+
+const AddObject = ({
+  object,
+  onClick,
+}: {
+  object: CustomObject
+  onClick: (object: CustomObject) => void
+}) => {
+  const mesh = useRef<THREE.Mesh>(null!)
+  const position = useCursorRaycaster(mesh)
+
+  useEventListener('pointerdown', (e) => {
+    //@ts-ignore
+    if (e.button === 0 && e?.target?.tagName === 'CANVAS') {
+      onClick({
+        ...object,
+        position: [
+          position?.current?.x || 0,
+          position?.current?.y || 0,
+          position?.current?.z || 0,
+        ],
+      })
+    }
+  })
+
+  return (
+    <mesh ref={mesh}>
+      <boxGeometry args={[1, 1, 1]} />
+      <meshStandardMaterial color="black" />
+    </mesh>
+  )
+}
 
 const Game: NextPage = () => {
-  function Plane() {
-    return (
-      <mesh rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[150, 150, 1]} />
-        <meshStandardMaterial color="white" side={THREE.DoubleSide} />
-      </mesh>
-    )
-  }
+  const [selectedObject, setSelectedObject] = useState<THREE.Object3D | null>(
+    null,
+  )
+  const [renderObjs, setRenderObjs] = useState<CustomObjects>([])
+  const [objToAdd, setObjToAdd] = useState<CustomObject | null>(null)
 
   // CONTROLS
   useControls({
-    add_Model: button(() =>
-      setObjToAdd({
-        customId: generateUuid(),
-        customType: 'model',
-        position: [10, 2, 0],
-        modelUrl: '../trex.fbx',
-        scale: 0.1,
-      }),
-    ),
-    add_Box: button(() =>
+    box: button(() =>
       setObjToAdd({
         customId: generateUuid(),
         customType: 'cuboid',
@@ -43,113 +71,24 @@ const Game: NextPage = () => {
         color: 'black',
       }),
     ),
+    default: button(() => setObjToAdd(null)),
   })
 
   const handleAddObject = (objToAdd: CustomObject) => {
     setRenderObjs((objs) => [...objs, objToAdd])
   }
 
-  const [selectedObject, setSelectedObject] = useState<THREE.Object3D | null>(
-    null,
-  )
-
-  const [renderObjs, setRenderObjs] = useState<CustomObjects>([
-    {
-      customId: generateUuid(),
-      customType: 'cuboid', //For example walls
-      position: [0, 2, 0],
-      size: [2, 1, 1],
-      type: 'Dynamic',
-      color: 'yellow',
-    },
-    {
-      customId: generateUuid(),
-      customType: 'cuboid',
-      position: [2, 2, 0],
-      size: [2, 1, 1],
-      type: 'Dynamic',
-      color: 'red',
-    },
-    {
-      customId: generateUuid(),
-      customType: 'cuboid',
-      position: [5, 2, 0],
-      size: [1, 1, 5],
-      type: 'Dynamic',
-      color: 'red',
-    },
-    {
-      customId: generateUuid(),
-      customType: 'model',
-      position: [10, 2, 0],
-      modelUrl: '../trex.fbx',
-      scale: 0.1,
-    },
-  ])
-
-  const [objToAdd, setObjToAdd] = useState<CustomObject | null>({
-    customId: generateUuid(),
-    customType: 'cuboid',
-    position: [0, 0, 0],
-    size: [1, 1, 1],
-    type: 'Static',
-    color: 'green',
-  })
-
-  const AddObject = ({
-    object,
-    onClick,
-  }: {
-    object: CustomObject
-    onClick: (object: CustomObject) => void
-  }) => {
-    const mesh = useRef<THREE.Mesh>(null!)
-    const position = useCursorRaycaster(mesh)
-
-    let fbx = useFBX('../trex.fbx')
-
-    useEventListener('pointerdown', () =>
-      onClick({
-        ...object,
-        position: [
-          position?.current?.x || 0,
-          position?.current?.y || 0,
-          position?.current?.z || 0,
-        ],
-      }),
-    )
-
-    if (object.customType === 'model') {
-      return (
-        <primitive
-          // ref={mesh}
-          //@ts-ignore
-          object={fbx}
-          scale={0.1}
-          castShadow
-          receiveShadow
-        />
-      )
-    }
-
-    return (
-      <mesh ref={mesh}>
-        <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial color="black" />
-      </mesh>
-    )
-  }
-
   return (
     <>
       <Canvas
+        style={{ width: '100vw', height: '100vh' }}
         shadows
         camera={{
           position: [0, 15, 25],
           isPerspectiveCamera: true,
         }}
       >
-        <axesHelper position={new THREE.Vector3(0, 0, 0)} args={[5]} />
+        {/* <axesHelper position={new THREE.Vector3(0, 0, 0)} args={[5]} /> */}
         {objToAdd && (
           <AddObject
             object={objToAdd}
@@ -164,7 +103,7 @@ const Game: NextPage = () => {
                 <RectangularCuboid
                   key={index}
                   onClick={(mesh) => setSelectedObject(mesh)}
-                  position={cuboid?.position || [0, 0, 0]}
+                  position={cuboid.position}
                   size={cuboid.size}
                   isSelected={
                     selectedObject?.userData.customId === cuboid.customId
@@ -174,9 +113,6 @@ const Game: NextPage = () => {
                   customId={cuboid.customId}
                 />
               )
-            case 'model':
-              const model = object as Model3d
-              return <Model key={index} url={model.modelUrl} />
             default:
               return <></>
           }

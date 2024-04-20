@@ -3,7 +3,7 @@ export type CustomObjectType = 'cuboid' | 'model'
 export interface GenericObject {
   customId?: string
   customType: CustomObjectType
-  position?: [number, number, number]
+  position: [number, number, number]
   type?: 'Static' | 'Dynamic' | 'Kinematic' // This is for physics
 }
 
