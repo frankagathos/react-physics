@@ -16,7 +16,7 @@ const Home: NextPage = () => {
         />
       </Head>
       <Box padding={2}>
-        <Typography variant="h2">React Three Fiber examples</Typography>
+        <Typography variant="h4">React Three Fiber examples</Typography>
 
         <List>
           {NAV_ITEMS[0].children &&
